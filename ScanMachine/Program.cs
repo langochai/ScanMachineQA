@@ -1,6 +1,8 @@
 ﻿using DevExpress.LookAndFeel;
 using DevExpress.Skins;
 using DevExpress.UserSkins;
+using DevExpress.XtraSplashScreen;
+using Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +12,22 @@ namespace winforms_templates
 {
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            SplashScreenManager.ShowForm(typeof(BaseSplashScreen));
+
+            frmMain mainForm = new frmMain();
+            mainForm.Shown += MainForm_Shown;
+            Application.Run(mainForm);
+        }
+
+        private static void MainForm_Shown(object sender, EventArgs e)
+        {
+            SplashScreenManager.CloseForm();
         }
     }
+
 }

@@ -410,7 +410,7 @@ namespace Common
 
         #endregion Generate queries with model
 
-        #region Execute queries with model
+        #region CRUD
 
         public static ResultQuery Insert(T model)
         {
@@ -713,7 +713,7 @@ namespace Common
             ExcuteNonQuerySQL(sql);
         }
 
-        #endregion Execute queries with model
+        #endregion CRUD
 
         #region Utilities
 

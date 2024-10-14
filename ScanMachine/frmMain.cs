@@ -1,4 +1,8 @@
 ﻿using Forms;
+using System;
+using System.Globalization;
+using System.Threading;
+using winforms_templates.Resources;
 
 namespace winforms_templates
 {
@@ -8,5 +12,7 @@ namespace winforms_templates
         {
             InitializeComponent();
         }
+
+
     }
 }
