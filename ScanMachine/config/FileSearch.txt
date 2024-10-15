@@ -1,0 +1,12 @@
+﻿*.pdf
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx

@@ -29,20 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.pnlHeader = new DevExpress.Utils.Layout.StackPanel();
-            this.lblInfo = new DevExpress.XtraEditors.LabelControl();
-            this.pnlFooter = new DevExpress.Utils.Layout.StackPanel();
+            this.pnlFooter = new DevExpress.XtraEditors.PanelControl();
+            this.grdData = new DevExpress.XtraGrid.GridControl();
+            this.grvData = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFileName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCreatedDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSize = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPath = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.txtDocumentCodeSearch = new DevExpress.XtraEditors.TextEdit();
+            this.lblDocumentCodeSearch = new DevExpress.XtraEditors.LabelControl();
             this.splitContainerBody = new DevExpress.XtraEditors.SplitContainerControl();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
+            this.lblOutput = new DevExpress.XtraEditors.LabelControl();
+            this.cboOutput = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnScan = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemoveLvl2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddLvl2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemoveLvl1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddLvl1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemoveGroup = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddGroup = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemoveLvl3 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddLvl3 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemoveFactory = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddFactory = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemoveReportType = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddReportType = new DevExpress.XtraEditors.SimpleButton();
+            this.txtDocumentCode = new DevExpress.XtraEditors.TextEdit();
+            this.lblDocumentCode = new DevExpress.XtraEditors.LabelControl();
             this.cboDrives = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblDrives = new DevExpress.XtraEditors.LabelControl();
             this.cboLvl3 = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -56,103 +74,221 @@
             this.cboFactory = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblFactory = new DevExpress.XtraEditors.LabelControl();
             this.btnReloadSource = new DevExpress.XtraEditors.SimpleButton();
-            this.cboReportType = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.lblReportType = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.cboReportTypes = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lblReportTypes = new DevExpress.XtraEditors.LabelControl();
+            this.dtpCreateDate = new DevExpress.XtraEditors.DateEdit();
             this.lblCreateDate = new DevExpress.XtraEditors.LabelControl();
             this.lblScanType = new DevExpress.XtraEditors.LabelControl();
             this.lblSource = new DevExpress.XtraEditors.LabelControl();
             this.cboScanType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cboSource = new DevExpress.XtraEditors.ComboBoxEdit();
             this.picPreview = new DevExpress.XtraEditors.PictureEdit();
-            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlHeader)).BeginInit();
-            this.pnlHeader.SuspendLayout();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.lblPage = new DevExpress.XtraEditors.LabelControl();
+            this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
+            this.btnFirst = new DevExpress.XtraEditors.SimpleButton();
+            this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
+            this.btnNext = new DevExpress.XtraEditors.SimpleButton();
+            this.btnLast = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.btn90Left = new DevExpress.XtraEditors.SimpleButton();
+            this.btn90Right = new DevExpress.XtraEditors.SimpleButton();
+            this.btn180 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDefaultSize = new DevExpress.XtraEditors.SimpleButton();
+            this.pnlHeader = new DevExpress.Utils.Layout.StackPanel();
+            this.lblInfo = new DevExpress.XtraEditors.LabelControl();
+            this.btnTest = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnlFooter)).BeginInit();
+            this.pnlFooter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDocumentCodeSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBody)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBody.Panel1)).BeginInit();
             this.splitContainerBody.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBody.Panel2)).BeginInit();
             this.splitContainerBody.Panel2.SuspendLayout();
             this.splitContainerBody.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboOutput.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDocumentCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDrives.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboGroups.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboFactory.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboReportType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboReportTypes.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpCreateDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpCreateDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboScanType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboSource.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPreview.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
+            this.stackPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlHeader)).BeginInit();
+            this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlHeader
-            // 
-            this.pnlHeader.Controls.Add(this.lblInfo);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1398, 78);
-            this.pnlHeader.TabIndex = 0;
-            this.pnlHeader.UseSkinIndents = true;
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Appearance.Options.UseFont = true;
-            this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblInfo.Location = new System.Drawing.Point(26, 12);
-            this.lblInfo.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Padding = new System.Windows.Forms.Padding(5);
-            this.lblInfo.Size = new System.Drawing.Size(1273, 53);
-            this.lblInfo.TabIndex = 0;
-            this.lblInfo.Text = "labelControl1";
             // 
             // pnlFooter
             // 
+            this.pnlFooter.Controls.Add(this.grdData);
+            this.pnlFooter.Controls.Add(this.panelControl1);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(0, 722);
+            this.pnlFooter.Location = new System.Drawing.Point(0, 738);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(1398, 226);
-            this.pnlFooter.TabIndex = 1;
-            this.pnlFooter.UseSkinIndents = true;
+            this.pnlFooter.Size = new System.Drawing.Size(1398, 210);
+            this.pnlFooter.TabIndex = 0;
+            // 
+            // grdData
+            // 
+            this.grdData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdData.Location = new System.Drawing.Point(2, 45);
+            this.grdData.MainView = this.grvData;
+            this.grdData.Name = "grdData";
+            this.grdData.Size = new System.Drawing.Size(1394, 163);
+            this.grdData.TabIndex = 1;
+            this.grdData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvData});
+            // 
+            // grvData
+            // 
+            this.grvData.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
+            this.grvData.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grvData.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.grvData.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.grvData.Appearance.Row.Options.UseFont = true;
+            this.grvData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colSTT,
+            this.colFileName,
+            this.colCreatedDate,
+            this.colSize,
+            this.colPath});
+            this.grvData.GridControl = this.grdData;
+            this.grvData.Name = "grvData";
+            this.grvData.OptionsBehavior.Editable = false;
+            this.grvData.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
+            this.grvData.OptionsView.ShowGroupPanel = false;
+            this.grvData.DoubleClick += new System.EventHandler(this.grvData_DoubleClick);
+            // 
+            // colSTT
+            // 
+            this.colSTT.Caption = "STT";
+            this.colSTT.Name = "colSTT";
+            this.colSTT.Visible = true;
+            this.colSTT.VisibleIndex = 0;
+            this.colSTT.Width = 48;
+            // 
+            // colFileName
+            // 
+            this.colFileName.Caption = "Tên file";
+            this.colFileName.FieldName = "FileName";
+            this.colFileName.Name = "colFileName";
+            this.colFileName.Visible = true;
+            this.colFileName.VisibleIndex = 1;
+            this.colFileName.Width = 584;
+            // 
+            // colCreatedDate
+            // 
+            this.colCreatedDate.Caption = "Ngày tạo";
+            this.colCreatedDate.FieldName = "CreatedDate";
+            this.colCreatedDate.Name = "colCreatedDate";
+            this.colCreatedDate.Visible = true;
+            this.colCreatedDate.VisibleIndex = 2;
+            this.colCreatedDate.Width = 379;
+            // 
+            // colSize
+            // 
+            this.colSize.Caption = "Dung lượng";
+            this.colSize.FieldName = "Size";
+            this.colSize.Name = "colSize";
+            this.colSize.Visible = true;
+            this.colSize.VisibleIndex = 3;
+            this.colSize.Width = 157;
+            // 
+            // colPath
+            // 
+            this.colPath.Caption = "Path";
+            this.colPath.FieldName = "AbsolutePath";
+            this.colPath.Name = "colPath";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.btnSearch);
+            this.panelControl1.Controls.Add(this.txtDocumentCodeSearch);
+            this.panelControl1.Controls.Add(this.lblDocumentCodeSearch);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(2, 2);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1394, 43);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Appearance.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSearch.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Appearance.Options.UseBackColor = true;
+            this.btnSearch.Appearance.Options.UseForeColor = true;
+            this.btnSearch.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSearch.ImageOptions.SvgImage")));
+            this.btnSearch.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnSearch.Location = new System.Drawing.Point(252, 10);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(25, 23);
+            this.btnSearch.TabIndex = 15;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtDocumentCodeSearch
+            // 
+            this.txtDocumentCodeSearch.Location = new System.Drawing.Point(118, 9);
+            this.txtDocumentCodeSearch.Name = "txtDocumentCodeSearch";
+            this.txtDocumentCodeSearch.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDocumentCodeSearch.Properties.Appearance.Options.UseFont = true;
+            this.txtDocumentCodeSearch.Size = new System.Drawing.Size(129, 24);
+            this.txtDocumentCodeSearch.TabIndex = 14;
+            this.txtDocumentCodeSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDocumentCodeSearch_KeyUp);
+            // 
+            // lblDocumentCodeSearch
+            // 
+            this.lblDocumentCodeSearch.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDocumentCodeSearch.Appearance.Options.UseFont = true;
+            this.lblDocumentCodeSearch.Location = new System.Drawing.Point(28, 12);
+            this.lblDocumentCodeSearch.Name = "lblDocumentCodeSearch";
+            this.lblDocumentCodeSearch.Size = new System.Drawing.Size(65, 18);
+            this.lblDocumentCodeSearch.TabIndex = 23;
+            this.lblDocumentCodeSearch.Text = "Mã tài liệu";
             // 
             // splitContainerBody
             // 
             this.splitContainerBody.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.splitContainerBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerBody.Location = new System.Drawing.Point(0, 78);
+            this.splitContainerBody.Location = new System.Drawing.Point(0, 44);
             this.splitContainerBody.Name = "splitContainerBody";
             // 
             // splitContainerBody.Panel1
             // 
             this.splitContainerBody.Panel1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton13);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton14);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton11);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton12);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton9);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton10);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton7);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton8);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton5);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton6);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton4);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton3);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton2);
-            this.splitContainerBody.Panel1.Controls.Add(this.simpleButton1);
-            this.splitContainerBody.Panel1.Controls.Add(this.textEdit1);
-            this.splitContainerBody.Panel1.Controls.Add(this.labelControl1);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnUpload);
+            this.splitContainerBody.Panel1.Controls.Add(this.lblOutput);
+            this.splitContainerBody.Panel1.Controls.Add(this.cboOutput);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnSave);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnScan);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnRemoveLvl2);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnAddLvl2);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnRemoveLvl1);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnAddLvl1);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnRemoveGroup);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnAddGroup);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnRemoveLvl3);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnAddLvl3);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnRemoveFactory);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnAddFactory);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnRemoveReportType);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnAddReportType);
+            this.splitContainerBody.Panel1.Controls.Add(this.txtDocumentCode);
+            this.splitContainerBody.Panel1.Controls.Add(this.lblDocumentCode);
             this.splitContainerBody.Panel1.Controls.Add(this.cboDrives);
             this.splitContainerBody.Panel1.Controls.Add(this.lblDrives);
             this.splitContainerBody.Panel1.Controls.Add(this.cboLvl3);
@@ -166,9 +302,9 @@
             this.splitContainerBody.Panel1.Controls.Add(this.cboFactory);
             this.splitContainerBody.Panel1.Controls.Add(this.lblFactory);
             this.splitContainerBody.Panel1.Controls.Add(this.btnReloadSource);
-            this.splitContainerBody.Panel1.Controls.Add(this.cboReportType);
-            this.splitContainerBody.Panel1.Controls.Add(this.lblReportType);
-            this.splitContainerBody.Panel1.Controls.Add(this.dateEdit1);
+            this.splitContainerBody.Panel1.Controls.Add(this.cboReportTypes);
+            this.splitContainerBody.Panel1.Controls.Add(this.lblReportTypes);
+            this.splitContainerBody.Panel1.Controls.Add(this.dtpCreateDate);
             this.splitContainerBody.Panel1.Controls.Add(this.lblCreateDate);
             this.splitContainerBody.Panel1.Controls.Add(this.lblScanType);
             this.splitContainerBody.Panel1.Controls.Add(this.lblSource);
@@ -179,132 +315,259 @@
             // 
             // splitContainerBody.Panel2
             // 
-            this.splitContainerBody.Panel2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.splitContainerBody.Panel2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.splitContainerBody.Panel2.Controls.Add(this.picPreview);
+            this.splitContainerBody.Panel2.Controls.Add(this.panelControl3);
+            this.splitContainerBody.Panel2.Controls.Add(this.stackPanel1);
             this.splitContainerBody.Panel2.MinSize = 600;
-            this.splitContainerBody.Panel2.Padding = new System.Windows.Forms.Padding(15);
+            this.splitContainerBody.Panel2.Padding = new System.Windows.Forms.Padding(15, 15, 15, 0);
             this.splitContainerBody.Panel2.Text = "Panel2";
-            this.splitContainerBody.Size = new System.Drawing.Size(1398, 644);
+            this.splitContainerBody.Size = new System.Drawing.Size(1398, 694);
             this.splitContainerBody.SplitterPosition = 355;
-            this.splitContainerBody.TabIndex = 2;
+            this.splitContainerBody.TabIndex = 4;
             // 
-            // simpleButton7
+            // btnUpload
             // 
-            this.simpleButton7.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton7.ImageOptions.SvgImage")));
-            this.simpleButton7.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton7.Location = new System.Drawing.Point(286, 253);
-            this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton7.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton7.TabIndex = 30;
+            this.btnUpload.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUpload.ImageOptions.SvgImage")));
+            this.btnUpload.Location = new System.Drawing.Point(22, 442);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(246, 35);
+            this.btnUpload.TabIndex = 41;
+            this.btnUpload.Text = "Upload ảnh";
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
-            // simpleButton8
+            // lblOutput
             // 
-            this.simpleButton8.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton8.ImageOptions.SvgImage")));
-            this.simpleButton8.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton8.Location = new System.Drawing.Point(254, 253);
-            this.simpleButton8.Name = "simpleButton8";
-            this.simpleButton8.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton8.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton8.TabIndex = 29;
+            this.lblOutput.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOutput.Appearance.Options.UseFont = true;
+            this.lblOutput.Location = new System.Drawing.Point(26, 45);
+            this.lblOutput.Name = "lblOutput";
+            this.lblOutput.Size = new System.Drawing.Size(47, 18);
+            this.lblOutput.TabIndex = 40;
+            this.lblOutput.Text = "Loại file";
             // 
-            // simpleButton5
+            // cboOutput
             // 
-            this.simpleButton5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton5.ImageOptions.SvgImage")));
-            this.simpleButton5.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton5.Location = new System.Drawing.Point(286, 132);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton5.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton5.TabIndex = 28;
+            this.cboOutput.Location = new System.Drawing.Point(116, 42);
+            this.cboOutput.Name = "cboOutput";
+            this.cboOutput.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboOutput.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboOutput.Properties.Appearance.Options.UseFont = true;
+            this.cboOutput.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboOutput.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboOutput.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboOutput.Properties.Items.AddRange(new object[] {
+            "PDF",
+            "PNG",
+            "JPG"});
+            this.cboOutput.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cboOutput.Size = new System.Drawing.Size(129, 24);
+            this.cboOutput.TabIndex = 39;
             // 
-            // simpleButton6
+            // btnSave
             // 
-            this.simpleButton6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton6.ImageOptions.SvgImage")));
-            this.simpleButton6.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton6.Location = new System.Drawing.Point(254, 132);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton6.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton6.TabIndex = 27;
+            this.btnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSave.ImageOptions.SvgImage")));
+            this.btnSave.Location = new System.Drawing.Point(148, 392);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(120, 35);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "Lưu file";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // simpleButton4
+            // btnScan
             // 
-            this.simpleButton4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
-            this.simpleButton4.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton4.Location = new System.Drawing.Point(286, 103);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton4.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton4.TabIndex = 26;
+            this.btnScan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnScan.ImageOptions.SvgImage")));
+            this.btnScan.Location = new System.Drawing.Point(22, 392);
+            this.btnScan.Name = "btnScan";
+            this.btnScan.Size = new System.Drawing.Size(120, 35);
+            this.btnScan.TabIndex = 12;
+            this.btnScan.Text = "Quét";
+            this.btnScan.Click += new System.EventHandler(this.btnScan_Click);
             // 
-            // simpleButton3
+            // btnRemoveLvl2
             // 
-            this.simpleButton3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton3.ImageOptions.SvgImage")));
-            this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton3.Location = new System.Drawing.Point(254, 103);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton3.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton3.TabIndex = 25;
+            this.btnRemoveLvl2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveLvl2.ImageOptions.SvgImage")));
+            this.btnRemoveLvl2.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnRemoveLvl2.Location = new System.Drawing.Point(286, 253);
+            this.btnRemoveLvl2.Name = "btnRemoveLvl2";
+            this.btnRemoveLvl2.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnRemoveLvl2.Size = new System.Drawing.Size(26, 23);
+            this.btnRemoveLvl2.TabIndex = 36;
+            this.btnRemoveLvl2.Tag = "Lvl2";
+            this.btnRemoveLvl2.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // simpleButton2
+            // btnAddLvl2
             // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.AutoSize = true;
-            this.simpleButton2.Location = new System.Drawing.Point(148, 364);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(108, 24);
-            this.simpleButton2.TabIndex = 24;
-            this.simpleButton2.Text = "simpleButton2";
+            this.btnAddLvl2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddLvl2.ImageOptions.SvgImage")));
+            this.btnAddLvl2.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnAddLvl2.Location = new System.Drawing.Point(254, 253);
+            this.btnAddLvl2.Name = "btnAddLvl2";
+            this.btnAddLvl2.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnAddLvl2.Size = new System.Drawing.Size(26, 23);
+            this.btnAddLvl2.TabIndex = 35;
+            this.btnAddLvl2.Tag = "Lvl2";
+            this.btnAddLvl2.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // simpleButton1
+            // btnRemoveLvl1
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.AutoSize = true;
-            this.simpleButton1.Location = new System.Drawing.Point(22, 364);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(108, 24);
-            this.simpleButton1.TabIndex = 23;
-            this.simpleButton1.Text = "simpleButton1";
+            this.btnRemoveLvl1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveLvl1.ImageOptions.SvgImage")));
+            this.btnRemoveLvl1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnRemoveLvl1.Location = new System.Drawing.Point(286, 223);
+            this.btnRemoveLvl1.Name = "btnRemoveLvl1";
+            this.btnRemoveLvl1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnRemoveLvl1.Size = new System.Drawing.Size(26, 23);
+            this.btnRemoveLvl1.TabIndex = 34;
+            this.btnRemoveLvl1.Tag = "Lvl1";
+            this.btnRemoveLvl1.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // textEdit1
+            // btnAddLvl1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(116, 312);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(129, 24);
-            this.textEdit1.TabIndex = 22;
+            this.btnAddLvl1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddLvl1.ImageOptions.SvgImage")));
+            this.btnAddLvl1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnAddLvl1.Location = new System.Drawing.Point(254, 223);
+            this.btnAddLvl1.Name = "btnAddLvl1";
+            this.btnAddLvl1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnAddLvl1.Size = new System.Drawing.Size(26, 23);
+            this.btnAddLvl1.TabIndex = 33;
+            this.btnAddLvl1.Tag = "Lvl1";
+            this.btnAddLvl1.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // labelControl1
+            // btnRemoveGroup
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(26, 315);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(65, 18);
-            this.labelControl1.TabIndex = 21;
-            this.labelControl1.Text = "Mã tài liệu";
+            this.btnRemoveGroup.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveGroup.ImageOptions.SvgImage")));
+            this.btnRemoveGroup.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnRemoveGroup.Location = new System.Drawing.Point(286, 193);
+            this.btnRemoveGroup.Name = "btnRemoveGroup";
+            this.btnRemoveGroup.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnRemoveGroup.Size = new System.Drawing.Size(26, 23);
+            this.btnRemoveGroup.TabIndex = 32;
+            this.btnRemoveGroup.Tag = "Groups";
+            this.btnRemoveGroup.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnAddGroup
+            // 
+            this.btnAddGroup.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddGroup.ImageOptions.SvgImage")));
+            this.btnAddGroup.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnAddGroup.Location = new System.Drawing.Point(254, 193);
+            this.btnAddGroup.Name = "btnAddGroup";
+            this.btnAddGroup.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnAddGroup.Size = new System.Drawing.Size(26, 23);
+            this.btnAddGroup.TabIndex = 31;
+            this.btnAddGroup.Tag = "Groups";
+            this.btnAddGroup.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnRemoveLvl3
+            // 
+            this.btnRemoveLvl3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveLvl3.ImageOptions.SvgImage")));
+            this.btnRemoveLvl3.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnRemoveLvl3.Location = new System.Drawing.Point(286, 283);
+            this.btnRemoveLvl3.Name = "btnRemoveLvl3";
+            this.btnRemoveLvl3.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnRemoveLvl3.Size = new System.Drawing.Size(26, 23);
+            this.btnRemoveLvl3.TabIndex = 38;
+            this.btnRemoveLvl3.Tag = "Lvl3";
+            this.btnRemoveLvl3.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnAddLvl3
+            // 
+            this.btnAddLvl3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddLvl3.ImageOptions.SvgImage")));
+            this.btnAddLvl3.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnAddLvl3.Location = new System.Drawing.Point(254, 283);
+            this.btnAddLvl3.Name = "btnAddLvl3";
+            this.btnAddLvl3.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnAddLvl3.Size = new System.Drawing.Size(26, 23);
+            this.btnAddLvl3.TabIndex = 37;
+            this.btnAddLvl3.Tag = "Lvl3";
+            this.btnAddLvl3.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnRemoveFactory
+            // 
+            this.btnRemoveFactory.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveFactory.ImageOptions.SvgImage")));
+            this.btnRemoveFactory.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnRemoveFactory.Location = new System.Drawing.Point(286, 162);
+            this.btnRemoveFactory.Name = "btnRemoveFactory";
+            this.btnRemoveFactory.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnRemoveFactory.Size = new System.Drawing.Size(26, 23);
+            this.btnRemoveFactory.TabIndex = 28;
+            this.btnRemoveFactory.Tag = "Factories";
+            this.btnRemoveFactory.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnAddFactory
+            // 
+            this.btnAddFactory.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddFactory.ImageOptions.SvgImage")));
+            this.btnAddFactory.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnAddFactory.Location = new System.Drawing.Point(254, 162);
+            this.btnAddFactory.Name = "btnAddFactory";
+            this.btnAddFactory.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnAddFactory.Size = new System.Drawing.Size(26, 23);
+            this.btnAddFactory.TabIndex = 27;
+            this.btnAddFactory.Tag = "Factories";
+            this.btnAddFactory.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnRemoveReportType
+            // 
+            this.btnRemoveReportType.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveReportType.ImageOptions.SvgImage")));
+            this.btnRemoveReportType.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnRemoveReportType.Location = new System.Drawing.Point(286, 133);
+            this.btnRemoveReportType.Name = "btnRemoveReportType";
+            this.btnRemoveReportType.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnRemoveReportType.Size = new System.Drawing.Size(26, 23);
+            this.btnRemoveReportType.TabIndex = 26;
+            this.btnRemoveReportType.Tag = "ReportTypes";
+            this.btnRemoveReportType.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnAddReportType
+            // 
+            this.btnAddReportType.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddReportType.ImageOptions.SvgImage")));
+            this.btnAddReportType.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btnAddReportType.Location = new System.Drawing.Point(254, 133);
+            this.btnAddReportType.Name = "btnAddReportType";
+            this.btnAddReportType.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnAddReportType.Size = new System.Drawing.Size(26, 23);
+            this.btnAddReportType.TabIndex = 25;
+            this.btnAddReportType.Tag = "ReportTypes";
+            this.btnAddReportType.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // txtDocumentCode
+            // 
+            this.txtDocumentCode.Location = new System.Drawing.Point(116, 342);
+            this.txtDocumentCode.Name = "txtDocumentCode";
+            this.txtDocumentCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDocumentCode.Properties.Appearance.Options.UseFont = true;
+            this.txtDocumentCode.Size = new System.Drawing.Size(129, 24);
+            this.txtDocumentCode.TabIndex = 11;
+            // 
+            // lblDocumentCode
+            // 
+            this.lblDocumentCode.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDocumentCode.Appearance.Options.UseFont = true;
+            this.lblDocumentCode.Location = new System.Drawing.Point(26, 345);
+            this.lblDocumentCode.Name = "lblDocumentCode";
+            this.lblDocumentCode.Size = new System.Drawing.Size(65, 18);
+            this.lblDocumentCode.TabIndex = 21;
+            this.lblDocumentCode.Text = "Mã tài liệu";
             // 
             // cboDrives
             // 
-            this.cboDrives.Location = new System.Drawing.Point(116, 282);
+            this.cboDrives.Location = new System.Drawing.Point(116, 312);
             this.cboDrives.Name = "cboDrives";
+            this.cboDrives.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cboDrives.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDrives.Properties.Appearance.Options.UseFont = true;
+            this.cboDrives.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDrives.Properties.AppearanceDropDown.Options.UseFont = true;
             this.cboDrives.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboDrives.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboDrives.Size = new System.Drawing.Size(129, 24);
-            this.cboDrives.TabIndex = 20;
+            this.cboDrives.TabIndex = 10;
             // 
             // lblDrives
             // 
             this.lblDrives.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDrives.Appearance.Options.UseFont = true;
-            this.lblDrives.Location = new System.Drawing.Point(26, 285);
+            this.lblDrives.Location = new System.Drawing.Point(26, 315);
             this.lblDrives.Name = "lblDrives";
             this.lblDrives.Size = new System.Drawing.Size(35, 18);
             this.lblDrives.TabIndex = 19;
@@ -312,20 +575,24 @@
             // 
             // cboLvl3
             // 
-            this.cboLvl3.Location = new System.Drawing.Point(116, 252);
+            this.cboLvl3.Location = new System.Drawing.Point(116, 282);
             this.cboLvl3.Name = "cboLvl3";
+            this.cboLvl3.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.cboLvl3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboLvl3.Properties.Appearance.Options.UseFont = true;
+            this.cboLvl3.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLvl3.Properties.AppearanceDropDown.Options.UseFont = true;
             this.cboLvl3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboLvl3.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboLvl3.Size = new System.Drawing.Size(129, 24);
-            this.cboLvl3.TabIndex = 18;
+            this.cboLvl3.TabIndex = 9;
             // 
             // lblLvl3
             // 
             this.lblLvl3.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLvl3.Appearance.Options.UseFont = true;
-            this.lblLvl3.Location = new System.Drawing.Point(26, 255);
+            this.lblLvl3.Location = new System.Drawing.Point(26, 285);
             this.lblLvl3.Name = "lblLvl3";
             this.lblLvl3.Size = new System.Drawing.Size(41, 18);
             this.lblLvl3.TabIndex = 17;
@@ -333,20 +600,24 @@
             // 
             // cboLvl2
             // 
-            this.cboLvl2.Location = new System.Drawing.Point(116, 222);
+            this.cboLvl2.Location = new System.Drawing.Point(116, 252);
             this.cboLvl2.Name = "cboLvl2";
+            this.cboLvl2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.cboLvl2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboLvl2.Properties.Appearance.Options.UseFont = true;
+            this.cboLvl2.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLvl2.Properties.AppearanceDropDown.Options.UseFont = true;
             this.cboLvl2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboLvl2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboLvl2.Size = new System.Drawing.Size(129, 24);
-            this.cboLvl2.TabIndex = 16;
+            this.cboLvl2.TabIndex = 8;
             // 
             // lblLvl2
             // 
             this.lblLvl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLvl2.Appearance.Options.UseFont = true;
-            this.lblLvl2.Location = new System.Drawing.Point(26, 225);
+            this.lblLvl2.Location = new System.Drawing.Point(26, 255);
             this.lblLvl2.Name = "lblLvl2";
             this.lblLvl2.Size = new System.Drawing.Size(41, 18);
             this.lblLvl2.TabIndex = 15;
@@ -354,20 +625,24 @@
             // 
             // cboLvl1
             // 
-            this.cboLvl1.Location = new System.Drawing.Point(116, 192);
+            this.cboLvl1.Location = new System.Drawing.Point(116, 222);
             this.cboLvl1.Name = "cboLvl1";
+            this.cboLvl1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.cboLvl1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboLvl1.Properties.Appearance.Options.UseFont = true;
+            this.cboLvl1.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLvl1.Properties.AppearanceDropDown.Options.UseFont = true;
             this.cboLvl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboLvl1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboLvl1.Size = new System.Drawing.Size(129, 24);
-            this.cboLvl1.TabIndex = 14;
+            this.cboLvl1.TabIndex = 7;
             // 
             // lblLvl1
             // 
             this.lblLvl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLvl1.Appearance.Options.UseFont = true;
-            this.lblLvl1.Location = new System.Drawing.Point(26, 195);
+            this.lblLvl1.Location = new System.Drawing.Point(26, 225);
             this.lblLvl1.Name = "lblLvl1";
             this.lblLvl1.Size = new System.Drawing.Size(41, 18);
             this.lblLvl1.TabIndex = 13;
@@ -375,20 +650,24 @@
             // 
             // cboGroups
             // 
-            this.cboGroups.Location = new System.Drawing.Point(116, 162);
+            this.cboGroups.Location = new System.Drawing.Point(116, 192);
             this.cboGroups.Name = "cboGroups";
+            this.cboGroups.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cboGroups.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboGroups.Properties.Appearance.Options.UseFont = true;
+            this.cboGroups.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboGroups.Properties.AppearanceDropDown.Options.UseFont = true;
             this.cboGroups.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboGroups.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboGroups.Size = new System.Drawing.Size(129, 24);
-            this.cboGroups.TabIndex = 12;
+            this.cboGroups.TabIndex = 6;
             // 
             // lblGroups
             // 
             this.lblGroups.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGroups.Appearance.Options.UseFont = true;
-            this.lblGroups.Location = new System.Drawing.Point(26, 165);
+            this.lblGroups.Location = new System.Drawing.Point(26, 195);
             this.lblGroups.Name = "lblGroups";
             this.lblGroups.Size = new System.Drawing.Size(39, 18);
             this.lblGroups.TabIndex = 11;
@@ -396,20 +675,24 @@
             // 
             // cboFactory
             // 
-            this.cboFactory.Location = new System.Drawing.Point(116, 132);
+            this.cboFactory.Location = new System.Drawing.Point(116, 162);
             this.cboFactory.Name = "cboFactory";
+            this.cboFactory.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cboFactory.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFactory.Properties.Appearance.Options.UseFont = true;
+            this.cboFactory.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboFactory.Properties.AppearanceDropDown.Options.UseFont = true;
             this.cboFactory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboFactory.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboFactory.Size = new System.Drawing.Size(129, 24);
-            this.cboFactory.TabIndex = 10;
+            this.cboFactory.TabIndex = 5;
             // 
             // lblFactory
             // 
             this.lblFactory.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFactory.Appearance.Options.UseFont = true;
-            this.lblFactory.Location = new System.Drawing.Point(26, 135);
+            this.lblFactory.Location = new System.Drawing.Point(26, 165);
             this.lblFactory.Name = "lblFactory";
             this.lblFactory.Size = new System.Drawing.Size(60, 18);
             this.lblFactory.TabIndex = 9;
@@ -419,53 +702,60 @@
             // 
             this.btnReloadSource.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReloadSource.ImageOptions.SvgImage")));
             this.btnReloadSource.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnReloadSource.Location = new System.Drawing.Point(251, 10);
+            this.btnReloadSource.Location = new System.Drawing.Point(254, 13);
             this.btnReloadSource.Name = "btnReloadSource";
             this.btnReloadSource.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnReloadSource.Size = new System.Drawing.Size(26, 23);
-            this.btnReloadSource.TabIndex = 8;
+            this.btnReloadSource.TabIndex = 16;
+            this.btnReloadSource.Click += new System.EventHandler(this.btnReloadSource_Click);
             // 
-            // cboReportType
+            // cboReportTypes
             // 
-            this.cboReportType.Location = new System.Drawing.Point(116, 102);
-            this.cboReportType.Name = "cboReportType";
-            this.cboReportType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboReportType.Properties.Appearance.Options.UseFont = true;
-            this.cboReportType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cboReportTypes.Location = new System.Drawing.Point(116, 132);
+            this.cboReportTypes.Name = "cboReportTypes";
+            this.cboReportTypes.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboReportTypes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboReportTypes.Properties.Appearance.Options.UseFont = true;
+            this.cboReportTypes.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboReportTypes.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboReportTypes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboReportType.Size = new System.Drawing.Size(129, 24);
-            this.cboReportType.TabIndex = 7;
+            this.cboReportTypes.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cboReportTypes.Size = new System.Drawing.Size(129, 24);
+            this.cboReportTypes.TabIndex = 4;
             // 
-            // lblReportType
+            // lblReportTypes
             // 
-            this.lblReportType.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReportType.Appearance.Options.UseFont = true;
-            this.lblReportType.Location = new System.Drawing.Point(26, 105);
-            this.lblReportType.Name = "lblReportType";
-            this.lblReportType.Size = new System.Drawing.Size(82, 18);
-            this.lblReportType.TabIndex = 6;
-            this.lblReportType.Text = "Loại báo cáo";
+            this.lblReportTypes.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReportTypes.Appearance.Options.UseFont = true;
+            this.lblReportTypes.Location = new System.Drawing.Point(26, 135);
+            this.lblReportTypes.Name = "lblReportTypes";
+            this.lblReportTypes.Size = new System.Drawing.Size(82, 18);
+            this.lblReportTypes.TabIndex = 6;
+            this.lblReportTypes.Text = "Loại báo cáo";
             // 
-            // dateEdit1
+            // dtpCreateDate
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(116, 72);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateEdit1.Properties.Appearance.Options.UseFont = true;
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpCreateDate.EditValue = null;
+            this.dtpCreateDate.Location = new System.Drawing.Point(116, 102);
+            this.dtpCreateDate.Name = "dtpCreateDate";
+            this.dtpCreateDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.dtpCreateDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpCreateDate.Properties.Appearance.Options.UseFont = true;
+            this.dtpCreateDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpCreateDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(129, 24);
-            this.dateEdit1.TabIndex = 5;
+            this.dtpCreateDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dtpCreateDate.Size = new System.Drawing.Size(129, 24);
+            this.dtpCreateDate.TabIndex = 3;
             // 
             // lblCreateDate
             // 
             this.lblCreateDate.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreateDate.Appearance.Options.UseFont = true;
             this.lblCreateDate.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.lblCreateDate.Location = new System.Drawing.Point(26, 75);
+            this.lblCreateDate.Location = new System.Drawing.Point(26, 105);
             this.lblCreateDate.Name = "lblCreateDate";
             this.lblCreateDate.Size = new System.Drawing.Size(60, 18);
             this.lblCreateDate.TabIndex = 4;
@@ -475,7 +765,7 @@
             // 
             this.lblScanType.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScanType.Appearance.Options.UseFont = true;
-            this.lblScanType.Location = new System.Drawing.Point(26, 45);
+            this.lblScanType.Location = new System.Drawing.Point(26, 75);
             this.lblScanType.Name = "lblScanType";
             this.lblScanType.Size = new System.Drawing.Size(59, 18);
             this.lblScanType.TabIndex = 3;
@@ -493,94 +783,230 @@
             // 
             // cboScanType
             // 
-            this.cboScanType.Location = new System.Drawing.Point(116, 42);
+            this.cboScanType.Location = new System.Drawing.Point(116, 72);
             this.cboScanType.Name = "cboScanType";
+            this.cboScanType.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cboScanType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboScanType.Properties.Appearance.Options.UseFont = true;
+            this.cboScanType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboScanType.Properties.AppearanceDropDown.Options.UseFont = true;
             this.cboScanType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboScanType.Properties.Items.AddRange(new object[] {
+            "Multiple",
+            "Multiple (separate files)",
+            "Single"});
+            this.cboScanType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboScanType.Size = new System.Drawing.Size(129, 24);
-            this.cboScanType.TabIndex = 1;
+            this.cboScanType.TabIndex = 2;
             // 
             // cboSource
             // 
             this.cboSource.Location = new System.Drawing.Point(116, 12);
             this.cboSource.Name = "cboSource";
+            this.cboSource.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cboSource.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSource.Properties.Appearance.Options.UseFont = true;
+            this.cboSource.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboSource.Properties.AppearanceDropDown.Options.UseFont = true;
             this.cboSource.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboSource.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboSource.Size = new System.Drawing.Size(129, 24);
-            this.cboSource.TabIndex = 0;
+            this.cboSource.TabIndex = 1;
+            this.cboSource.EditValueChanged += new System.EventHandler(this.cboSource_EditValueChanged);
             // 
             // picPreview
             // 
             this.picPreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picPreview.Location = new System.Drawing.Point(15, 15);
+            this.picPreview.Location = new System.Drawing.Point(15, 32);
             this.picPreview.Name = "picPreview";
+            this.picPreview.Properties.AllowScrollViaMouseDrag = true;
+            this.picPreview.Properties.AllowZoom = DevExpress.Utils.DefaultBoolean.True;
+            this.picPreview.Properties.NullText = " ";
             this.picPreview.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.picPreview.Size = new System.Drawing.Size(995, 606);
+            this.picPreview.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.True;
+            this.picPreview.Size = new System.Drawing.Size(995, 596);
             this.picPreview.TabIndex = 0;
             // 
-            // simpleButton9
+            // panelControl3
             // 
-            this.simpleButton9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton9.ImageOptions.SvgImage")));
-            this.simpleButton9.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton9.Location = new System.Drawing.Point(286, 163);
-            this.simpleButton9.Name = "simpleButton9";
-            this.simpleButton9.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton9.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton9.TabIndex = 32;
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.lblPage);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl3.Location = new System.Drawing.Point(15, 15);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(995, 17);
+            this.panelControl3.TabIndex = 2;
             // 
-            // simpleButton10
+            // lblPage
             // 
-            this.simpleButton10.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton10.ImageOptions.SvgImage")));
-            this.simpleButton10.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton10.Location = new System.Drawing.Point(254, 163);
-            this.simpleButton10.Name = "simpleButton10";
-            this.simpleButton10.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton10.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton10.TabIndex = 31;
+            this.lblPage.Location = new System.Drawing.Point(0, 0);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(32, 13);
+            this.lblPage.TabIndex = 41;
+            this.lblPage.Text = "Trang:";
             // 
-            // simpleButton11
+            // stackPanel1
             // 
-            this.simpleButton11.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton11.ImageOptions.SvgImage")));
-            this.simpleButton11.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton11.Location = new System.Drawing.Point(286, 193);
-            this.simpleButton11.Name = "simpleButton11";
-            this.simpleButton11.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton11.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton11.TabIndex = 34;
+            this.stackPanel1.Controls.Add(this.btnFirst);
+            this.stackPanel1.Controls.Add(this.btnPrev);
+            this.stackPanel1.Controls.Add(this.btnNext);
+            this.stackPanel1.Controls.Add(this.btnLast);
+            this.stackPanel1.Controls.Add(this.btnDelete);
+            this.stackPanel1.Controls.Add(this.btn90Left);
+            this.stackPanel1.Controls.Add(this.btn90Right);
+            this.stackPanel1.Controls.Add(this.btn180);
+            this.stackPanel1.Controls.Add(this.btnDefaultSize);
+            this.stackPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.stackPanel1.Location = new System.Drawing.Point(15, 628);
+            this.stackPanel1.Name = "stackPanel1";
+            this.stackPanel1.Size = new System.Drawing.Size(995, 58);
+            this.stackPanel1.TabIndex = 1;
+            this.stackPanel1.UseSkinIndents = true;
             // 
-            // simpleButton12
+            // btnFirst
             // 
-            this.simpleButton12.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton12.ImageOptions.SvgImage")));
-            this.simpleButton12.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton12.Location = new System.Drawing.Point(254, 193);
-            this.simpleButton12.Name = "simpleButton12";
-            this.simpleButton12.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton12.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton12.TabIndex = 33;
+            this.btnFirst.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnFirst.ImageOptions.SvgImage")));
+            this.btnFirst.Location = new System.Drawing.Point(41, 13);
+            this.btnFirst.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnFirst.Size = new System.Drawing.Size(40, 30);
+            this.btnFirst.TabIndex = 0;
+            this.btnFirst.ToolTip = "Về trang đầu";
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
-            // simpleButton13
+            // btnPrev
             // 
-            this.simpleButton13.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton13.ImageOptions.SvgImage")));
-            this.simpleButton13.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton13.Location = new System.Drawing.Point(286, 223);
-            this.simpleButton13.Name = "simpleButton13";
-            this.simpleButton13.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton13.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton13.TabIndex = 36;
+            this.btnPrev.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPrev.ImageOptions.SvgImage")));
+            this.btnPrev.Location = new System.Drawing.Point(141, 13);
+            this.btnPrev.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnPrev.Size = new System.Drawing.Size(40, 30);
+            this.btnPrev.TabIndex = 1;
+            this.btnPrev.ToolTip = "Về trang trước";
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
-            // simpleButton14
+            // btnNext
             // 
-            this.simpleButton14.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton14.ImageOptions.SvgImage")));
-            this.simpleButton14.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton14.Location = new System.Drawing.Point(254, 223);
-            this.simpleButton14.Name = "simpleButton14";
-            this.simpleButton14.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton14.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton14.TabIndex = 35;
+            this.btnNext.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNext.ImageOptions.SvgImage")));
+            this.btnNext.Location = new System.Drawing.Point(241, 13);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnNext.Size = new System.Drawing.Size(40, 30);
+            this.btnNext.TabIndex = 2;
+            this.btnNext.ToolTip = "Về trang sau";
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnLast
+            // 
+            this.btnLast.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLast.ImageOptions.SvgImage")));
+            this.btnLast.Location = new System.Drawing.Point(341, 13);
+            this.btnLast.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnLast.Size = new System.Drawing.Size(40, 30);
+            this.btnLast.TabIndex = 3;
+            this.btnLast.ToolTip = "Về trang cuối";
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDelete.ImageOptions.SvgImage")));
+            this.btnDelete.Location = new System.Drawing.Point(441, 13);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnDelete.Size = new System.Drawing.Size(40, 30);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.ToolTip = "Xóa";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btn90Left
+            // 
+            this.btn90Left.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn90Left.ImageOptions.SvgImage")));
+            this.btn90Left.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.btn90Left.Location = new System.Drawing.Point(541, 13);
+            this.btn90Left.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btn90Left.Name = "btn90Left";
+            this.btn90Left.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btn90Left.Size = new System.Drawing.Size(40, 30);
+            this.btn90Left.TabIndex = 5;
+            this.btn90Left.ToolTip = "Xoay 90° trái";
+            this.btn90Left.Click += new System.EventHandler(this.btn90Left_Click);
+            // 
+            // btn90Right
+            // 
+            this.btn90Right.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn90Right.ImageOptions.SvgImage")));
+            this.btn90Right.Location = new System.Drawing.Point(641, 13);
+            this.btn90Right.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btn90Right.Name = "btn90Right";
+            this.btn90Right.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btn90Right.Size = new System.Drawing.Size(40, 30);
+            this.btn90Right.TabIndex = 6;
+            this.btn90Right.ToolTip = "Xoay 90° phải";
+            this.btn90Right.Click += new System.EventHandler(this.btn90Right_Click);
+            // 
+            // btn180
+            // 
+            this.btn180.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn180.ImageOptions.SvgImage")));
+            this.btn180.Location = new System.Drawing.Point(741, 13);
+            this.btn180.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btn180.Name = "btn180";
+            this.btn180.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btn180.Size = new System.Drawing.Size(40, 30);
+            this.btn180.TabIndex = 7;
+            this.btn180.ToolTip = "Xoay 180°";
+            this.btn180.Click += new System.EventHandler(this.btn180_Click);
+            // 
+            // btnDefaultSize
+            // 
+            this.btnDefaultSize.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDefaultSize.ImageOptions.SvgImage")));
+            this.btnDefaultSize.Location = new System.Drawing.Point(841, 13);
+            this.btnDefaultSize.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btnDefaultSize.Name = "btnDefaultSize";
+            this.btnDefaultSize.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnDefaultSize.Size = new System.Drawing.Size(40, 30);
+            this.btnDefaultSize.TabIndex = 8;
+            this.btnDefaultSize.ToolTip = "Kích thước mặc định";
+            this.btnDefaultSize.Click += new System.EventHandler(this.btnDefaultSize_Click);
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.Controls.Add(this.lblInfo);
+            this.pnlHeader.Controls.Add(this.btnTest);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(1398, 44);
+            this.pnlHeader.TabIndex = 3;
+            this.pnlHeader.UseSkinIndents = true;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Appearance.Options.UseFont = true;
+            this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblInfo.Location = new System.Drawing.Point(26, 1);
+            this.lblInfo.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Padding = new System.Windows.Forms.Padding(5);
+            this.lblInfo.Size = new System.Drawing.Size(1273, 42);
+            this.lblInfo.TabIndex = 2;
+            this.lblInfo.Text = "Initializing...";
+            // 
+            // btnTest
+            // 
+            this.btnTest.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnTest.Location = new System.Drawing.Point(1304, 10);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 3;
+            this.btnTest.Text = "Test";
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // frmMain
             // 
@@ -588,16 +1014,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1398, 948);
             this.Controls.Add(this.splitContainerBody);
-            this.Controls.Add(this.pnlFooter);
             this.Controls.Add(this.pnlHeader);
+            this.Controls.Add(this.pnlFooter);
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("frmMain.IconOptions.Image")));
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "";
-            ((System.ComponentModel.ISupportInitialize)(this.pnlHeader)).EndInit();
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
+            this.Text = "QA SCAN";
             ((System.ComponentModel.ISupportInitialize)(this.pnlFooter)).EndInit();
+            this.pnlFooter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDocumentCodeSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBody.Panel1)).EndInit();
             this.splitContainerBody.Panel1.ResumeLayout(false);
             this.splitContainerBody.Panel1.PerformLayout();
@@ -605,66 +1035,102 @@
             this.splitContainerBody.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBody)).EndInit();
             this.splitContainerBody.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboOutput.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDocumentCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDrives.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboGroups.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboFactory.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboReportType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboReportTypes.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpCreateDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpCreateDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboScanType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboSource.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPreview.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).EndInit();
+            this.stackPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlHeader)).EndInit();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.Utils.Layout.StackPanel pnlHeader;
-        private DevExpress.Utils.Layout.StackPanel pnlFooter;
+        private DevExpress.XtraEditors.PanelControl pnlFooter;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerBody;
-        private DevExpress.XtraEditors.LabelControl lblInfo;
-        private DevExpress.XtraEditors.ComboBoxEdit cboSource;
-        private DevExpress.XtraEditors.ComboBoxEdit cboScanType;
-        private DevExpress.XtraEditors.LabelControl lblCreateDate;
-        private DevExpress.XtraEditors.LabelControl lblScanType;
-        private DevExpress.XtraEditors.LabelControl lblSource;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.ComboBoxEdit cboReportType;
-        private DevExpress.XtraEditors.LabelControl lblReportType;
-        private DevExpress.XtraEditors.PictureEdit picPreview;
-        private DevExpress.XtraEditors.SimpleButton btnReloadSource;
-        private DevExpress.XtraEditors.ComboBoxEdit cboFactory;
-        private DevExpress.XtraEditors.LabelControl lblFactory;
-        private DevExpress.XtraEditors.ComboBoxEdit cboGroups;
-        private DevExpress.XtraEditors.LabelControl lblGroups;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.XtraEditors.SimpleButton btnScan;
+        private DevExpress.XtraEditors.SimpleButton btnRemoveLvl2;
+        private DevExpress.XtraEditors.SimpleButton btnAddLvl2;
+        private DevExpress.XtraEditors.SimpleButton btnRemoveLvl1;
+        private DevExpress.XtraEditors.SimpleButton btnAddLvl1;
+        private DevExpress.XtraEditors.SimpleButton btnRemoveGroup;
+        private DevExpress.XtraEditors.SimpleButton btnAddGroup;
+        private DevExpress.XtraEditors.SimpleButton btnRemoveLvl3;
+        private DevExpress.XtraEditors.SimpleButton btnAddLvl3;
+        private DevExpress.XtraEditors.SimpleButton btnRemoveFactory;
+        private DevExpress.XtraEditors.SimpleButton btnAddFactory;
+        private DevExpress.XtraEditors.SimpleButton btnRemoveReportType;
+        private DevExpress.XtraEditors.SimpleButton btnAddReportType;
+        private DevExpress.XtraEditors.TextEdit txtDocumentCode;
+        private DevExpress.XtraEditors.LabelControl lblDocumentCode;
+        private DevExpress.XtraEditors.ComboBoxEdit cboDrives;
+        private DevExpress.XtraEditors.LabelControl lblDrives;
         private DevExpress.XtraEditors.ComboBoxEdit cboLvl3;
         private DevExpress.XtraEditors.LabelControl lblLvl3;
         private DevExpress.XtraEditors.ComboBoxEdit cboLvl2;
         private DevExpress.XtraEditors.LabelControl lblLvl2;
         private DevExpress.XtraEditors.ComboBoxEdit cboLvl1;
         private DevExpress.XtraEditors.LabelControl lblLvl1;
-        private DevExpress.XtraEditors.ComboBoxEdit cboDrives;
-        private DevExpress.XtraEditors.LabelControl lblDrives;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton7;
-        private DevExpress.XtraEditors.SimpleButton simpleButton8;
-        private DevExpress.XtraEditors.SimpleButton simpleButton13;
-        private DevExpress.XtraEditors.SimpleButton simpleButton14;
-        private DevExpress.XtraEditors.SimpleButton simpleButton11;
-        private DevExpress.XtraEditors.SimpleButton simpleButton12;
-        private DevExpress.XtraEditors.SimpleButton simpleButton9;
-        private DevExpress.XtraEditors.SimpleButton simpleButton10;
+        private DevExpress.XtraEditors.ComboBoxEdit cboGroups;
+        private DevExpress.XtraEditors.LabelControl lblGroups;
+        private DevExpress.XtraEditors.ComboBoxEdit cboFactory;
+        private DevExpress.XtraEditors.LabelControl lblFactory;
+        private DevExpress.XtraEditors.SimpleButton btnReloadSource;
+        private DevExpress.XtraEditors.ComboBoxEdit cboReportTypes;
+        private DevExpress.XtraEditors.LabelControl lblReportTypes;
+        private DevExpress.XtraEditors.DateEdit dtpCreateDate;
+        private DevExpress.XtraEditors.LabelControl lblCreateDate;
+        private DevExpress.XtraEditors.LabelControl lblScanType;
+        private DevExpress.XtraEditors.LabelControl lblSource;
+        private DevExpress.XtraEditors.ComboBoxEdit cboScanType;
+        private DevExpress.XtraEditors.ComboBoxEdit cboSource;
+        private DevExpress.Utils.Layout.StackPanel stackPanel1;
+        private DevExpress.XtraEditors.SimpleButton btnFirst;
+        private DevExpress.XtraEditors.SimpleButton btnPrev;
+        private DevExpress.XtraEditors.SimpleButton btnNext;
+        private DevExpress.XtraEditors.SimpleButton btnLast;
+        private DevExpress.XtraEditors.SimpleButton btnDelete;
+        private DevExpress.XtraEditors.PictureEdit picPreview;
+        private DevExpress.Utils.Layout.StackPanel pnlHeader;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraGrid.GridControl grdData;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvData;
+        private DevExpress.XtraEditors.TextEdit txtDocumentCodeSearch;
+        private DevExpress.XtraEditors.LabelControl lblDocumentCodeSearch;
+        private DevExpress.XtraEditors.SimpleButton btnSearch;
+        private DevExpress.XtraEditors.LabelControl lblOutput;
+        private DevExpress.XtraEditors.ComboBoxEdit cboOutput;
+        private DevExpress.XtraEditors.SimpleButton btnTest;
+        private DevExpress.XtraEditors.LabelControl lblInfo;
+        private DevExpress.XtraEditors.SimpleButton btn90Left;
+        private DevExpress.XtraEditors.SimpleButton btn90Right;
+        private DevExpress.XtraEditors.SimpleButton btn180;
+        private DevExpress.XtraEditors.LabelControl lblPage;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.SimpleButton btnUpload;
+        private DevExpress.XtraEditors.SimpleButton btnDefaultSize;
+        private DevExpress.XtraGrid.Columns.GridColumn colFileName;
+        private DevExpress.XtraGrid.Columns.GridColumn colCreatedDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colSize;
+        private DevExpress.XtraGrid.Columns.GridColumn colPath;
+        private DevExpress.XtraGrid.Columns.GridColumn colSTT;
     }
 }

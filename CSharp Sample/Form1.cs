@@ -4,7 +4,6 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Data;
-using Atalasoft.EZTwain;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Text;
