@@ -45,7 +45,10 @@
     <Reference Include="DevExpress.XtraEditors.v23.1" />
     <Reference Include="DevExpress.Printing.v23.1.Core" />
     <Reference Include="DevExpress.Drawing.v23.1" />
+    <Reference Include="DevExpress.XtraGrid.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v23.1, Version=23.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -107,13 +110,40 @@
   <!--<ItemGroup>
     <Folder Include="Config\" />
   </ItemGroup>-->
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Config\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="config\FileSearch.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\ReportTypes.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\Factories.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\Groups.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\Level1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\Level2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\Level3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="notes\appconfig.txt" />
+    <Content Include="notes\postbuild.txt" />
     <Content Include="scanner.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir "$(TargetDir)refs"
+for %25%25f in ("$(TargetDir)*.*") do (
+    if /I not "%25%25~nxf"=="$(TargetName)$(TargetExt)" if /I not "%25%25~nxf"=="$(TargetName)$(TargetExt).config" move "%25%25f" "$(TargetDir)refs\"
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

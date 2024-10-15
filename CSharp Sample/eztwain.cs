@@ -3,7 +3,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Atalasoft.EZTwain
+namespace EZTwain_CSharp_Sample
 {
 
     public abstract class EZTwain
