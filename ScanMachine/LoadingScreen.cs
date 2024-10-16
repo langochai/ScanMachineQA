@@ -1,11 +1,5 @@
 ﻿using DevExpress.XtraSplashScreen;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace winforms_templates
 {
@@ -23,7 +17,7 @@ namespace winforms_templates
             base.ProcessCommand(cmd, arg);
         }
 
-        #endregion
+        #endregion Overrides
 
         public enum SplashScreenCommand
         {

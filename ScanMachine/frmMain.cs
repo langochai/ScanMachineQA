@@ -1,7 +1,7 @@
-﻿using DevExpress.XtraEditors;
+﻿using Atalasoft.EZTwain;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using Atalasoft.EZTwain;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -459,11 +459,20 @@ namespace winforms_templates
             }
         }
 
-        private void btn180_Click(object sender, EventArgs e)
+        private void btnFlipH_Click(object sender, EventArgs e)
         {
             if (m_ipage >= 0)
             {
-                EZTwain.DIB_Rotate180(m_dibs[m_ipage]);
+                EZTwain.DIB_FlipHorizontal(m_dibs[m_ipage]);
+                RepaintImage();
+            }
+        }
+
+        private void btnFlipV_Click(object sender, EventArgs e)
+        {
+            if (m_ipage >= 0)
+            {
+                EZTwain.DIB_FlipVertical(m_dibs[m_ipage]);
                 RepaintImage();
             }
         }
@@ -673,6 +682,7 @@ namespace winforms_templates
             try
             {
                 var directories = Directory.EnumerateDirectories(driveName, "*", SearchOption.TopDirectoryOnly);
+                int order = 1;
                 foreach (var directory in directories)
                 {
                     DirectoryInfo dirInfo = new DirectoryInfo(directory);
@@ -680,7 +690,6 @@ namespace winforms_templates
                     {
                         try
                         {
-                            int order = 1;
                             foreach (string file in Directory.EnumerateFiles(directory, searchPattern, SearchOption.AllDirectories))
                             {
                                 FileInfo fileInfo = new FileInfo(file);

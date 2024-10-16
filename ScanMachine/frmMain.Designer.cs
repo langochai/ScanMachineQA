@@ -93,7 +93,8 @@
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btn90Left = new DevExpress.XtraEditors.SimpleButton();
             this.btn90Right = new DevExpress.XtraEditors.SimpleButton();
-            this.btn180 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnFlipH = new DevExpress.XtraEditors.SimpleButton();
+            this.btnFlipV = new DevExpress.XtraEditors.SimpleButton();
             this.btnDefaultSize = new DevExpress.XtraEditors.SimpleButton();
             this.pnlHeader = new DevExpress.Utils.Layout.StackPanel();
             this.lblInfo = new DevExpress.XtraEditors.LabelControl();
@@ -176,6 +177,7 @@
             // colSTT
             // 
             this.colSTT.Caption = "STT";
+            this.colSTT.FieldName = "STT";
             this.colSTT.Name = "colSTT";
             this.colSTT.Visible = true;
             this.colSTT.VisibleIndex = 0;
@@ -332,7 +334,7 @@
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(246, 35);
             this.btnUpload.TabIndex = 41;
-            this.btnUpload.Text = "Upload ảnh";
+            this.btnUpload.Text = "Tải lên";
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // lblOutput
@@ -371,7 +373,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 35);
             this.btnSave.TabIndex = 13;
-            this.btnSave.Text = "Lưu file";
+            this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnScan
@@ -855,7 +857,8 @@
             this.stackPanel1.Controls.Add(this.btnDelete);
             this.stackPanel1.Controls.Add(this.btn90Left);
             this.stackPanel1.Controls.Add(this.btn90Right);
-            this.stackPanel1.Controls.Add(this.btn180);
+            this.stackPanel1.Controls.Add(this.btnFlipH);
+            this.stackPanel1.Controls.Add(this.btnFlipV);
             this.stackPanel1.Controls.Add(this.btnDefaultSize);
             this.stackPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.stackPanel1.Location = new System.Drawing.Point(15, 628);
@@ -868,8 +871,8 @@
             // 
             this.btnFirst.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnFirst.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnFirst.ImageOptions.SvgImage")));
-            this.btnFirst.Location = new System.Drawing.Point(41, 11);
-            this.btnFirst.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btnFirst.Location = new System.Drawing.Point(35, 11);
+            this.btnFirst.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnFirst.Size = new System.Drawing.Size(50, 35);
@@ -881,8 +884,8 @@
             // 
             this.btnPrev.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnPrev.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPrev.ImageOptions.SvgImage")));
-            this.btnPrev.Location = new System.Drawing.Point(151, 11);
-            this.btnPrev.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btnPrev.Location = new System.Drawing.Point(133, 11);
+            this.btnPrev.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnPrev.Size = new System.Drawing.Size(50, 35);
@@ -894,8 +897,8 @@
             // 
             this.btnNext.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnNext.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNext.ImageOptions.SvgImage")));
-            this.btnNext.Location = new System.Drawing.Point(261, 11);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btnNext.Location = new System.Drawing.Point(231, 11);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
             this.btnNext.Name = "btnNext";
             this.btnNext.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnNext.Size = new System.Drawing.Size(50, 35);
@@ -907,8 +910,8 @@
             // 
             this.btnLast.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnLast.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLast.ImageOptions.SvgImage")));
-            this.btnLast.Location = new System.Drawing.Point(371, 11);
-            this.btnLast.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btnLast.Location = new System.Drawing.Point(329, 11);
+            this.btnLast.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
             this.btnLast.Name = "btnLast";
             this.btnLast.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnLast.Size = new System.Drawing.Size(50, 35);
@@ -920,8 +923,8 @@
             // 
             this.btnDelete.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDelete.ImageOptions.SvgImage")));
-            this.btnDelete.Location = new System.Drawing.Point(481, 11);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btnDelete.Location = new System.Drawing.Point(427, 11);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnDelete.Size = new System.Drawing.Size(50, 35);
@@ -934,8 +937,8 @@
             this.btn90Left.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn90Left.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn90Left.ImageOptions.SvgImage")));
             this.btn90Left.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn90Left.Location = new System.Drawing.Point(591, 11);
-            this.btn90Left.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btn90Left.Location = new System.Drawing.Point(525, 11);
+            this.btn90Left.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
             this.btn90Left.Name = "btn90Left";
             this.btn90Left.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btn90Left.Size = new System.Drawing.Size(50, 35);
@@ -948,8 +951,8 @@
             this.btn90Right.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn90Right.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn90Right.ImageOptions.SvgImage")));
             this.btn90Right.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn90Right.Location = new System.Drawing.Point(701, 11);
-            this.btn90Right.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btn90Right.Location = new System.Drawing.Point(623, 11);
+            this.btn90Right.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
             this.btn90Right.Name = "btn90Right";
             this.btn90Right.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btn90Right.Size = new System.Drawing.Size(50, 35);
@@ -957,26 +960,40 @@
             this.btn90Right.ToolTip = "Xoay 90° phải";
             this.btn90Right.Click += new System.EventHandler(this.btn90Right_Click);
             // 
-            // btn180
+            // btnFlipH
             // 
-            this.btn180.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btn180.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn180.ImageOptions.SvgImage")));
-            this.btn180.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn180.Location = new System.Drawing.Point(811, 11);
-            this.btn180.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
-            this.btn180.Name = "btn180";
-            this.btn180.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btn180.Size = new System.Drawing.Size(50, 35);
-            this.btn180.TabIndex = 7;
-            this.btn180.ToolTip = "Xoay 180°";
-            this.btn180.Click += new System.EventHandler(this.btn180_Click);
+            this.btnFlipH.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnFlipH.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnFlipH.ImageOptions.SvgImage")));
+            this.btnFlipH.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.btnFlipH.Location = new System.Drawing.Point(721, 11);
+            this.btnFlipH.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
+            this.btnFlipH.Name = "btnFlipH";
+            this.btnFlipH.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnFlipH.Size = new System.Drawing.Size(50, 35);
+            this.btnFlipH.TabIndex = 7;
+            this.btnFlipH.ToolTip = "Lật ảnh";
+            this.btnFlipH.Click += new System.EventHandler(this.btnFlipH_Click);
+            // 
+            // btnFlipV
+            // 
+            this.btnFlipV.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnFlipV.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnFlipV.ImageOptions.SvgImage")));
+            this.btnFlipV.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.btnFlipV.Location = new System.Drawing.Point(819, 11);
+            this.btnFlipV.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
+            this.btnFlipV.Name = "btnFlipV";
+            this.btnFlipV.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnFlipV.Size = new System.Drawing.Size(50, 35);
+            this.btnFlipV.TabIndex = 9;
+            this.btnFlipV.ToolTip = "Lật ảnh";
+            this.btnFlipV.Click += new System.EventHandler(this.btnFlipV_Click);
             // 
             // btnDefaultSize
             // 
             this.btnDefaultSize.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnDefaultSize.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDefaultSize.ImageOptions.SvgImage")));
-            this.btnDefaultSize.Location = new System.Drawing.Point(921, 11);
-            this.btnDefaultSize.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.btnDefaultSize.Location = new System.Drawing.Point(917, 11);
+            this.btnDefaultSize.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
             this.btnDefaultSize.Name = "btnDefaultSize";
             this.btnDefaultSize.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnDefaultSize.Size = new System.Drawing.Size(50, 35);
@@ -1003,9 +1020,9 @@
             this.lblInfo.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Padding = new System.Windows.Forms.Padding(5);
-            this.lblInfo.Size = new System.Drawing.Size(1273, 42);
+            this.lblInfo.Size = new System.Drawing.Size(164, 42);
             this.lblInfo.TabIndex = 2;
-            this.lblInfo.Text = "Initializing...";
+            this.lblInfo.Text = "Đang chờ...";
             // 
             // frmMain
             // 
@@ -1120,7 +1137,7 @@
         private DevExpress.XtraEditors.LabelControl lblInfo;
         private DevExpress.XtraEditors.SimpleButton btn90Left;
         private DevExpress.XtraEditors.SimpleButton btn90Right;
-        private DevExpress.XtraEditors.SimpleButton btn180;
+        private DevExpress.XtraEditors.SimpleButton btnFlipH;
         private DevExpress.XtraEditors.LabelControl lblPage;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.SimpleButton btnUpload;
@@ -1130,5 +1147,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSize;
         private DevExpress.XtraGrid.Columns.GridColumn colPath;
         private DevExpress.XtraGrid.Columns.GridColumn colSTT;
+        private DevExpress.XtraEditors.SimpleButton btnFlipV;
     }
 }
