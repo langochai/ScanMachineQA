@@ -1,8 +1,7 @@
 ﻿using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Views.Grid;
-using EZTwain_CSharp_Sample;
-using Forms;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using Atalasoft.EZTwain;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,11 +10,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 
 namespace winforms_templates
 {
-    public partial class frmMain : _Form
+    public partial class frmMain : DevExpress.XtraEditors.XtraForm
     {
         private System.IntPtr[] m_dibs = new System.IntPtr[0];
         private int m_ipage = -1; //page index
@@ -225,15 +223,19 @@ namespace winforms_templates
         {
             StringBuilder buffer = new StringBuilder();
             List<string> devices = new List<string>();
-            if (EZTwain.GetSourceList())
+            try
             {
-                buffer.EnsureCapacity(64);
-                while (EZTwain.GetNextSourceName(buffer))
+                if (EZTwain.GetSourceList())
                 {
-                    devices.Add(buffer.ToString());
                     buffer.EnsureCapacity(64);
+                    while (EZTwain.GetNextSourceName(buffer))
+                    {
+                        devices.Add(buffer.ToString());
+                        buffer.EnsureCapacity(64);
+                    }
                 }
             }
+            catch { MessageBox.Show($"Chưa cài đặt EZTwain", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             return devices;
         }
 
@@ -441,12 +443,6 @@ namespace winforms_templates
 
         #endregion Get prompt messages (and related stuffs)
 
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-            var frm = new Form1();
-            frm.ShowDialog();
-        }
-
         private void btn90Left_Click(object sender, EventArgs e)
         {
             if (m_ipage >= 0)
@@ -596,10 +592,14 @@ namespace winforms_templates
         private void cboSource_EditValueChanged(object sender, EventArgs e)
         {
             string deviceName = cboSource.Text;
-            if (EZTwain.OpenSource(deviceName))
-                lblInfo.Text = $"Đã kết nối {deviceName}";
-            else
-                lblInfo.Text = $"Kết nối tới {deviceName} thất bại";
+            try
+            {
+                if (EZTwain.OpenSource(deviceName))
+                    lblInfo.Text = $"Đã kết nối {deviceName}";
+                else
+                    lblInfo.Text = $"Kết nối tới {deviceName} thất bại";
+            }
+            catch { MessageBox.Show("Chưa cài đặt EZTwain", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void btnDefaultSize_Click(object sender, EventArgs e)
@@ -668,52 +668,39 @@ namespace winforms_templates
             fileTable.Columns.Add("Size", typeof(string));
             fileTable.Columns.Add("AbsolutePath", typeof(string));
 
-            // List of file extensions to search for
-            List<string> fileExtensions = ReadFileLines("FileSearch");
-            int order = 1;
+            string searchPattern = $"{fileNameStart}*";
 
             try
             {
                 var directories = Directory.EnumerateDirectories(driveName, "*", SearchOption.TopDirectoryOnly);
-                Parallel.ForEach(directories, directory =>
+                foreach (var directory in directories)
                 {
                     DirectoryInfo dirInfo = new DirectoryInfo(directory);
                     if ((dirInfo.Attributes & FileAttributes.Hidden) == 0 && (dirInfo.Attributes & FileAttributes.System) == 0)
                     {
                         try
                         {
-                            foreach (string extension in fileExtensions)
+                            int order = 1;
+                            foreach (string file in Directory.EnumerateFiles(directory, searchPattern, SearchOption.AllDirectories))
                             {
-                                foreach (string file in Directory.EnumerateFiles(directory, $"{fileNameStart}{extension}", SearchOption.AllDirectories))
-                                {
-                                    FileInfo fileInfo = new FileInfo(file);
-                                    string fileSize = Math.Round(fileInfo.Length / 1024.0 / 1024.0, 2) == 0
-                                        ? "≈ 0MB"
-                                        : $"{Math.Round(fileInfo.Length / 1024.0 / 1024.0, 2)}MB";
-
-                                    lock (fileTable) // Lock the DataTable to prevent race conditions
-                                    {
-                                        fileTable.Rows.Add(order++, fileInfo.Name, fileInfo.CreationTime, fileSize, fileInfo.FullName);
-                                    }
-                                }
+                                FileInfo fileInfo = new FileInfo(file);
+                                string fileSize = Math.Round(fileInfo.Length / 1024.0 / 1024.0, 2) == 0
+                                                ? "≈ 0MB"
+                                                : $"{Math.Round(fileInfo.Length / 1024.0 / 1024.0, 2)}MB";
+                                fileTable.Rows.Add(order, fileInfo.Name, fileInfo.CreationTime, fileSize, fileInfo.FullName);
+                                order++;
                             }
                         }
                         catch (UnauthorizedAccessException)
                         {
-                            lock (fileTable)
-                            {
-                                MessageBox.Show($"Không có quyền truy cập vào {directory}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            MessageBox.Show($"Không có quyền truy cập vào {directory}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         catch (Exception ex)
                         {
-                            lock (fileTable)
-                            {
-                                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                });
+                }
             }
             catch (Exception ex)
             {

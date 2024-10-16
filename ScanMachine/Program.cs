@@ -1,11 +1,5 @@
-﻿using DevExpress.LookAndFeel;
-using DevExpress.Skins;
-using DevExpress.UserSkins;
-using DevExpress.XtraSplashScreen;
-using Forms;
+﻿using DevExpress.XtraSplashScreen;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace winforms_templates
@@ -17,7 +11,7 @@ namespace winforms_templates
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            SplashScreenManager.ShowForm(typeof(BaseSplashScreen));
+            SplashScreenManager.ShowForm(typeof(LoadingScreen));
 
             frmMain mainForm = new frmMain();
             mainForm.Shown += MainForm_Shown;
