@@ -42,6 +42,10 @@
             this.txtDocumentCodeSearch = new DevExpress.XtraEditors.TextEdit();
             this.lblDocumentCodeSearch = new DevExpress.XtraEditors.LabelControl();
             this.splitContainerBody = new DevExpress.XtraEditors.SplitContainerControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnScanOld = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.cboScanTypeOld = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cboSource = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cboLvl3 = new DevExpress.XtraEditors.LookUpEdit();
             this.cboLvl2 = new DevExpress.XtraEditors.LookUpEdit();
@@ -98,10 +102,6 @@
             this.btnDefaultSize = new DevExpress.XtraEditors.SimpleButton();
             this.pnlHeader = new DevExpress.Utils.Layout.StackPanel();
             this.lblInfo = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.cboScanTypeOld = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.btnScanOld = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnlFooter)).BeginInit();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
@@ -115,6 +115,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBody.Panel2)).BeginInit();
             this.splitContainerBody.Panel2.SuspendLayout();
             this.splitContainerBody.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboScanTypeOld.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboSource.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl2.Properties)).BeginInit();
@@ -135,9 +138,6 @@
             this.stackPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlHeader)).BeginInit();
             this.pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboScanTypeOld.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlFooter
@@ -334,6 +334,56 @@
             this.splitContainerBody.Size = new System.Drawing.Size(1398, 694);
             this.splitContainerBody.SplitterPosition = 355;
             this.splitContainerBody.TabIndex = 4;
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.btnScanOld);
+            this.panelControl2.Controls.Add(this.labelControl1);
+            this.panelControl2.Controls.Add(this.cboScanTypeOld);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl2.Location = new System.Drawing.Point(0, 513);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(351, 173);
+            this.panelControl2.TabIndex = 49;
+            // 
+            // btnScanOld
+            // 
+            this.btnScanOld.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnScanOld.ImageOptions.SvgImage")));
+            this.btnScanOld.Location = new System.Drawing.Point(22, 58);
+            this.btnScanOld.Name = "btnScanOld";
+            this.btnScanOld.Size = new System.Drawing.Size(246, 35);
+            this.btnScanOld.TabIndex = 13;
+            this.btnScanOld.Text = "Quét";
+            this.btnScanOld.Click += new System.EventHandler(this.btnScanOld_Click);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(26, 21);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(59, 18);
+            this.labelControl1.TabIndex = 5;
+            this.labelControl1.Text = "Loại quét";
+            // 
+            // cboScanTypeOld
+            // 
+            this.cboScanTypeOld.Location = new System.Drawing.Point(116, 18);
+            this.cboScanTypeOld.Name = "cboScanTypeOld";
+            this.cboScanTypeOld.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboScanTypeOld.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboScanTypeOld.Properties.Appearance.Options.UseFont = true;
+            this.cboScanTypeOld.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboScanTypeOld.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboScanTypeOld.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboScanTypeOld.Properties.Items.AddRange(new object[] {
+            "All",
+            "Auto",
+            "Multi"});
+            this.cboScanTypeOld.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cboScanTypeOld.Size = new System.Drawing.Size(130, 24);
+            this.cboScanTypeOld.TabIndex = 4;
             // 
             // cboSource
             // 
@@ -951,8 +1001,8 @@
             // 
             this.btnFirst.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnFirst.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnFirst.ImageOptions.SvgImage")));
-            this.btnFirst.Location = new System.Drawing.Point(35, 11);
-            this.btnFirst.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
+            this.btnFirst.Location = new System.Drawing.Point(26, 11);
+            this.btnFirst.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnFirst.Size = new System.Drawing.Size(50, 35);
@@ -964,8 +1014,8 @@
             // 
             this.btnPrev.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnPrev.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPrev.ImageOptions.SvgImage")));
-            this.btnPrev.Location = new System.Drawing.Point(133, 11);
-            this.btnPrev.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
+            this.btnPrev.Location = new System.Drawing.Point(106, 11);
+            this.btnPrev.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnPrev.Size = new System.Drawing.Size(50, 35);
@@ -977,8 +1027,8 @@
             // 
             this.btnNext.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnNext.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNext.ImageOptions.SvgImage")));
-            this.btnNext.Location = new System.Drawing.Point(231, 11);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
+            this.btnNext.Location = new System.Drawing.Point(186, 11);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.btnNext.Name = "btnNext";
             this.btnNext.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnNext.Size = new System.Drawing.Size(50, 35);
@@ -990,8 +1040,8 @@
             // 
             this.btnLast.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnLast.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLast.ImageOptions.SvgImage")));
-            this.btnLast.Location = new System.Drawing.Point(329, 11);
-            this.btnLast.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
+            this.btnLast.Location = new System.Drawing.Point(266, 11);
+            this.btnLast.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.btnLast.Name = "btnLast";
             this.btnLast.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnLast.Size = new System.Drawing.Size(50, 35);
@@ -1003,8 +1053,8 @@
             // 
             this.btnDelete.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnDelete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDelete.ImageOptions.SvgImage")));
-            this.btnDelete.Location = new System.Drawing.Point(427, 11);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
+            this.btnDelete.Location = new System.Drawing.Point(346, 11);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnDelete.Size = new System.Drawing.Size(50, 35);
@@ -1017,8 +1067,8 @@
             this.btn90Left.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn90Left.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn90Left.ImageOptions.SvgImage")));
             this.btn90Left.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn90Left.Location = new System.Drawing.Point(525, 11);
-            this.btn90Left.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
+            this.btn90Left.Location = new System.Drawing.Point(426, 11);
+            this.btn90Left.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.btn90Left.Name = "btn90Left";
             this.btn90Left.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btn90Left.Size = new System.Drawing.Size(50, 35);
@@ -1031,8 +1081,8 @@
             this.btn90Right.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btn90Right.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn90Right.ImageOptions.SvgImage")));
             this.btn90Right.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn90Right.Location = new System.Drawing.Point(623, 11);
-            this.btn90Right.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
+            this.btn90Right.Location = new System.Drawing.Point(506, 11);
+            this.btn90Right.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.btn90Right.Name = "btn90Right";
             this.btn90Right.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btn90Right.Size = new System.Drawing.Size(50, 35);
@@ -1045,8 +1095,8 @@
             this.btnFlipH.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnFlipH.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnFlipH.ImageOptions.SvgImage")));
             this.btnFlipH.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btnFlipH.Location = new System.Drawing.Point(721, 11);
-            this.btnFlipH.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
+            this.btnFlipH.Location = new System.Drawing.Point(586, 11);
+            this.btnFlipH.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.btnFlipH.Name = "btnFlipH";
             this.btnFlipH.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnFlipH.Size = new System.Drawing.Size(50, 35);
@@ -1059,8 +1109,8 @@
             this.btnFlipV.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnFlipV.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnFlipV.ImageOptions.SvgImage")));
             this.btnFlipV.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btnFlipV.Location = new System.Drawing.Point(819, 11);
-            this.btnFlipV.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
+            this.btnFlipV.Location = new System.Drawing.Point(666, 11);
+            this.btnFlipV.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.btnFlipV.Name = "btnFlipV";
             this.btnFlipV.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnFlipV.Size = new System.Drawing.Size(50, 35);
@@ -1072,8 +1122,8 @@
             // 
             this.btnDefaultSize.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnDefaultSize.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDefaultSize.ImageOptions.SvgImage")));
-            this.btnDefaultSize.Location = new System.Drawing.Point(917, 11);
-            this.btnDefaultSize.Margin = new System.Windows.Forms.Padding(24, 3, 24, 3);
+            this.btnDefaultSize.Location = new System.Drawing.Point(746, 11);
+            this.btnDefaultSize.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.btnDefaultSize.Name = "btnDefaultSize";
             this.btnDefaultSize.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnDefaultSize.Size = new System.Drawing.Size(50, 35);
@@ -1104,56 +1154,6 @@
             this.lblInfo.TabIndex = 2;
             this.lblInfo.Text = "Đang chờ...";
             // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.btnScanOld);
-            this.panelControl2.Controls.Add(this.labelControl1);
-            this.panelControl2.Controls.Add(this.cboScanTypeOld);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(0, 513);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(351, 173);
-            this.panelControl2.TabIndex = 49;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(26, 21);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(59, 18);
-            this.labelControl1.TabIndex = 5;
-            this.labelControl1.Text = "Loại quét";
-            // 
-            // cboScanTypeOld
-            // 
-            this.cboScanTypeOld.Location = new System.Drawing.Point(116, 18);
-            this.cboScanTypeOld.Name = "cboScanTypeOld";
-            this.cboScanTypeOld.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.cboScanTypeOld.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboScanTypeOld.Properties.Appearance.Options.UseFont = true;
-            this.cboScanTypeOld.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboScanTypeOld.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cboScanTypeOld.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboScanTypeOld.Properties.Items.AddRange(new object[] {
-            "All",
-            "Auto",
-            "Multi"});
-            this.cboScanTypeOld.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboScanTypeOld.Size = new System.Drawing.Size(130, 24);
-            this.cboScanTypeOld.TabIndex = 4;
-            // 
-            // btnScanOld
-            // 
-            this.btnScanOld.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btnScanOld.Location = new System.Drawing.Point(22, 58);
-            this.btnScanOld.Name = "btnScanOld";
-            this.btnScanOld.Size = new System.Drawing.Size(246, 35);
-            this.btnScanOld.TabIndex = 13;
-            this.btnScanOld.Text = "Quét";
-            this.btnScanOld.Click += new System.EventHandler(this.btnScanOld_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1181,6 +1181,10 @@
             this.splitContainerBody.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBody)).EndInit();
             this.splitContainerBody.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboScanTypeOld.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboSource.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl2.Properties)).EndInit();
@@ -1203,10 +1207,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlHeader)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboScanTypeOld.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

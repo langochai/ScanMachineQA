@@ -20,7 +20,9 @@ namespace winforms_templates
             {
                 connection.Open();
 
-                var properties = typeof(T).GetProperties();
+                var properties = typeof(T).GetProperties()
+                    .Where(p => p.Name != "ID" && p.GetValue(model) != null);
+
                 var columns = string.Join(", ", properties.Select(p => p.Name));
                 var values = string.Join(", ", properties.Select(p => $"@{p.Name}"));
 
@@ -36,6 +38,7 @@ namespace winforms_templates
                 }
             }
         }
+
 
         public List<T> GetAll()
         {
