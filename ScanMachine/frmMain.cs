@@ -6,16 +6,18 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using winforms_templates.Models;
 
 namespace winforms_templates
 {
     public partial class frmMain : DevExpress.XtraEditors.XtraForm
     {
-        private System.IntPtr[] m_dibs = new System.IntPtr[0];
+        private System.IntPtr[] m_dibs = new System.IntPtr[0]; // DIB is device-independent bitmap
         private int m_ipage = -1; //page index
 
         public frmMain()
@@ -32,27 +34,43 @@ namespace winforms_templates
             LoadMachineSouce();
             cboOutput.SelectedIndex = 0;
             cboScanType.SelectedIndex = 0;
-            LoadDataComboBox(cboReportTypes, "ReportTypes");
-            LoadDataComboBox(cboFactory, "Factories");
-            LoadDataComboBox(cboGroups, "Groups");
-            cboReportTypes.SelectedIndex = cboFactory.SelectedIndex = cboGroups.SelectedIndex = 0;
-            LoadDataComboBox(cboLvl1, "Level1");
-            LoadDataComboBox(cboLvl2, "Level2");
-            LoadDataComboBox(cboLvl3, "Level3");
+            LoadDataComboBox<ReportTypes>(cboReportTypes);
+            LoadDataComboBox<Factories>(cboFactories);
+            cboReportTypes.ItemIndex = cboFactories.ItemIndex = 0;
             LoadDrives();
         }
 
-        public void LoadDataComboBox(ComboBoxEdit ctrl, string fileName)
+        public void LoadDataComboBox<T>(LookUpEdit ctrl, int? foreignKeyID = null) where T : new()
         {
-            List<string> lines = ReadFileLines(fileName);
-            ctrl.Properties?.Items.Clear();
-            ctrl.Properties?.Items.AddRange(lines);
+            var sqlHelper = new SqliteHelper<T>();
+            IEnumerable<T> result;
+
+            if (foreignKeyID.HasValue)
+            {
+                var foreignKeyProperty = typeof(T).GetProperties()
+                    .FirstOrDefault(p => p.Name.EndsWith("ID", StringComparison.OrdinalIgnoreCase) && p.Name != "ID");
+
+                if (foreignKeyProperty == null)
+                {
+                    throw new Exception($"Foreign key property not found in type {typeof(T).Name}");
+                }
+
+                result = sqlHelper.GetByColumnValue(foreignKeyProperty.Name, foreignKeyID.Value);
+            }
+            else
+            {
+                result = sqlHelper.GetAll();
+            }
+
+            ctrl.Properties.DataSource = result;
+            ctrl.Properties.ValueMember = "ID";
+            ctrl.Properties.DisplayMember = "Name";
+            ctrl.EditValue = null;
         }
 
         public void LoadMachineSouce()
         {
             var devices = GetAvailableTWAINDevices();
-            devices.Add("Test");
             cboSource.Properties?.Items.Clear();
             cboSource.Properties?.Items.AddRange(devices);
         }
@@ -89,94 +107,6 @@ namespace winforms_templates
         }
 
         #endregion Load Data
-
-        #region Process Data (Click events, ...)
-
-        private string getOutputPath()
-        {
-            string drive = cboDrives.Text.Replace("\\", "");
-            string createMonth = (Convert.ToDateTime(dtpCreateDate.EditValue).ToString("yyyy-MM"));
-            string reportType = cboReportTypes.Text;
-            string factory = cboFactory.Text;
-            string group = cboGroups.Text;
-            string lvl1 = cboLvl1.Text;
-            string lvl2 = cboLvl2.Text;
-            string lvl3 = cboLvl3.Text;
-            string createDate = (Convert.ToDateTime(dtpCreateDate.EditValue).ToString("yyyy-MM-dd"));
-            return $"{drive}\\{createMonth}\\{reportType}\\{factory}\\{group}" +
-                (lvl1 == "" ? "" : "\\" + lvl1) +
-                (lvl2 == "" ? "" : "\\" + lvl2) +
-                (lvl3 == "" ? "" : "\\" + lvl3) +
-                $"\\{createDate}";
-        }
-
-        private void btnReloadSource_Click(object sender, EventArgs e)
-        {
-            LoadMachineSouce();
-        }
-
-        private void btnScan_Click(object sender, EventArgs e)
-        {
-            string deviceName = cboSource.Text;
-            if (cboScanType.Text.ToLower() == "single" && !String.IsNullOrWhiteSpace(deviceName))
-            {
-                ScanSingle(deviceName);
-            }
-            else
-            {
-                ScanMultiple(deviceName);
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            string output = getOutputPath();
-            if (!Directory.Exists(output))
-            {
-                Directory.CreateDirectory(output);
-            }
-
-            string createDate = DateTime.Now.ToString("ddMMyyyyHHmmss");
-            string fileType = cboOutput.Text.ToLower();
-            string documentCode = txtDocumentCode.Text;
-
-            bool saveAsSingleFile = cboScanType.SelectedIndex != 2;
-
-            try
-            {
-                if (m_dibs.Length > 0)
-                {
-                    if (saveAsSingleFile)
-                    {
-                        // Save as a single file
-                        string fileName = $"{documentCode}_{createDate}.{fileType}";
-                        string fullPath = Path.Combine(output, fileName);
-                        EZTwain.DIB_WriteArrayToFilename(m_dibs, m_dibs.Length, fullPath);
-                    }
-                    else
-                    {
-                        // Save each image separately
-                        for (int i = 0; i < m_dibs.Length; i++)
-                        {
-                            string fileName = $"{documentCode}_{createDate}_{i + 1}.{fileType}";
-                            string fullPath = Path.Combine(output, fileName);
-                            EZTwain.DIB_WriteToFilename(m_dibs[i], fullPath);
-                        }
-                    }
-
-                    EZTwain.ReportLastError("Saving to file");
-
-                    // Open the folder
-                    Process.Start(output);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        #endregion Process Data (Click events, ...)
 
         #region CRUD setting files
 
@@ -365,83 +295,188 @@ namespace winforms_templates
             m_dibs = dibs;
         }
 
+        private void ScanSingle(string deviceName)
+        {
+            if (EZTwain.OpenSource(deviceName))
+            {
+                EZTwain.SetMultiTransfer(false);
+                ClearImages();
+
+                IntPtr hdib = EZTwain.Acquire(this.Handle);
+                if (hdib != IntPtr.Zero)
+                {
+                    AppendImage(hdib);
+                    m_ipage = 0;
+                    RepaintImage();
+                }
+                else
+                {
+                    m_ipage = -1;
+                }
+
+                RepaintImage();
+                EZTwain.ReportLastError("Scanning");
+                EZTwain.CloseSource();
+            }
+            else
+            {
+                MessageBox.Show("Kết nối thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ScanMultiple(string deviceName)
+        {
+            if (EZTwain.OpenSource(deviceName))
+            {
+                EZTwain.SetHideUI(true);
+                ClearImages();
+                EZTwain.SelectFeeder(true);
+                EZTwain.SetPixelType(0);
+                EZTwain.SetBitDepth(1);
+                EZTwain.SetResolution(300);
+                EZTwain.SetAutoDeskew(1);
+                EZTwain.SetXferCount(-1);
+                EZTwain.SetAutoScan(true);
+
+                string tempDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TempScans");
+                Directory.CreateDirectory(tempDirectory);
+                string baseFileName = "scanned_page";
+                string basePath = Path.Combine(tempDirectory, $"{baseFileName}0.png");
+
+                int pagesScanned = EZTwain.AcquireImagesToFiles(this.Handle, basePath);
+
+                if (pagesScanned > 0)
+                {
+                    for (int i = 0; i < pagesScanned; i++)
+                    {
+                        string fileName = $"{baseFileName}{i}.png";
+                        using (var image = Image.FromFile(fileName))
+                        {
+                            IntPtr hdib = EZTwain.DIB_FromImage(image);
+                            if (hdib != IntPtr.Zero)
+                            {
+                                AppendImage(hdib);
+                            }
+                        }
+                    }
+
+                    m_ipage = m_dibs.Length > 0 ? 0 : -1;
+                    RepaintImage();
+                }
+                else
+                {
+                    MessageBox.Show("Scan thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                EZTwain.CloseSource();
+
+                // Delete temp directory and its contents
+                Directory.Delete(tempDirectory, true);
+            }
+            else
+            {
+                MessageBox.Show("Kết nối thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         #endregion EZTwain related stuffs
 
-        #region Get prompt messages (and related stuffs)
+        #region Process Data (Click events, ...)
 
-        private string GetComboBoxText(string tag)
+        private string getOutputPath()
         {
-            switch (tag)
+            string drive = cboDrives.Text.Replace("\\", "");
+            string createMonth = (Convert.ToDateTime(dtpCreateDate.EditValue).ToString("yyyy-MM"));
+            string reportType = cboReportTypes.Text;
+            string factory = cboFactories.Text;
+            string group = cboGroups.Text;
+            string lvl1 = cboLvl1.Text;
+            string lvl2 = cboLvl2.Text;
+            string lvl3 = cboLvl3.Text;
+            string createDate = (Convert.ToDateTime(dtpCreateDate.EditValue).ToString("yyyy-MM-dd"));
+            return $"{drive}\\{createMonth}\\{reportType}\\{factory}\\{group}" +
+                (lvl1 == "" ? "" : "\\" + lvl1) +
+                (lvl2 == "" ? "" : "\\" + lvl2) +
+                (lvl3 == "" ? "" : "\\" + lvl3) +
+                $"\\{createDate}";
+        }
+
+        private string GetFullPath()
+        {
+            string output = getOutputPath();
+            string createDate = DateTime.Now.ToString("ddMMyyyyHHmmss");
+            string fileType = cboOutput.Text.ToLower();
+            string documentCode = txtDocumentCode.Text;
+            string fileName = $"{documentCode}_{createDate}.{fileType}";
+            string fullPath = Path.Combine(output, fileName);
+            return fullPath;
+        }
+
+        private void btnReloadSource_Click(object sender, EventArgs e)
+        {
+            LoadMachineSouce();
+        }
+
+        private void btnScan_Click(object sender, EventArgs e)
+        {
+            string deviceName = cboSource.Text;
+            if (cboScanType.Text.ToLower() == "single" && !String.IsNullOrWhiteSpace(deviceName))
             {
-                case "ReportTypes": return cboReportTypes.Text;
-                case "Factories": return cboFactory.Text;
-                case "Groups": return cboGroups.Text;
-                case "Lvl1": return cboLvl1.Text;
-                case "Lvl2": return cboLvl2.Text;
-                case "Lvl3": return cboLvl3.Text;
-                default: return string.Empty;
+                ScanSingle(deviceName);
+            }
+            else
+            {
+                ScanMultiple(deviceName);
             }
         }
 
-        private string GetRemovePromptMessage(string tag, out string txt)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            txt = GetComboBoxText(tag);
-
-            switch (tag)
+            string output = getOutputPath();
+            if (!Directory.Exists(output))
             {
-                case "ReportTypes": return $"Xoá báo cáo \"{txt}\"?";
-                case "Factories": return $"Xoá nhà máy \"{txt}\"?";
-                case "Groups": return $"Xoá nhóm \"{txt}\"?";
-                case "Lvl1": return $"Xoá mức 1 \"{txt}\"?";
-                case "Lvl2": return $"Xoá mức 2 \"{txt}\"?";
-                case "Lvl3": return $"Xoá mức 3 \"{txt}\"?";
-                default: return $"Xoá \"{txt}\"?";
+                Directory.CreateDirectory(output);
+            }
+
+            string createDate = DateTime.Now.ToString("ddMMyyyyHHmmss");
+            string fileType = cboOutput.Text.ToLower();
+            string documentCode = txtDocumentCode.Text;
+
+            bool saveAsSingleFile = cboScanType.SelectedIndex != 2;
+
+            try
+            {
+                if (m_dibs.Length > 0)
+                {
+                    if (saveAsSingleFile)
+                    {
+                        // Save as a single file
+                        string fileName = $"{documentCode}_{createDate}.{fileType}";
+                        string fullPath = Path.Combine(output, fileName);
+                        EZTwain.DIB_WriteArrayToFilename(m_dibs, m_dibs.Length, fullPath);
+                    }
+                    else
+                    {
+                        // Save each image separately
+                        for (int i = 0; i < m_dibs.Length; i++)
+                        {
+                            string fileName = $"{documentCode}_{createDate}_{i + 1}.{fileType}";
+                            string fullPath = Path.Combine(output, fileName);
+                            EZTwain.DIB_WriteToFilename(m_dibs[i], fullPath);
+                        }
+                    }
+
+                    EZTwain.ReportLastError("Saving to file");
+
+                    // Open the folder
+                    Process.Start(output);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private string GetPromptMessage(string tag)
-        {
-            switch (tag)
-            {
-                case "ReportTypes": return "Tên báo cáo:";
-                case "Factories": return "Tên nhà máy:";
-                case "Groups": return "Tên nhóm:";
-                case "Lvl1": return "Tên mức 1:";
-                case "Lvl2": return "Tên mức 2:";
-                case "Lvl3": return "Tên mức 3:";
-                default: return "Nhập thông tin:";
-            }
-        }
-
-        private string GetInputTitle(string tag)
-        {
-            switch (tag)
-            {
-                case "ReportTypes": return "loại báo cáo";
-                case "Factories": return "nhà máy";
-                case "Groups": return "nhóm";
-                case "Lvl1": return "mức 1";
-                case "Lvl2": return "mức 2";
-                case "Lvl3": return "mức 3";
-                default: return "thông tin";
-            }
-        }
-
-        private ComboBoxEdit GetComboBox(string tag)
-        {
-            switch (tag)
-            {
-                case "ReportTypes": return cboReportTypes;
-                case "Factories": return cboFactory;
-                case "Groups": return cboGroups;
-                case "Lvl1": return cboLvl1;
-                case "Lvl2": return cboLvl2;
-                case "Lvl3": return cboLvl3;
-                default: return null;
-            }
-        }
-
-        #endregion Get prompt messages (and related stuffs)
 
         private void btn90Left_Click(object sender, EventArgs e)
         {
@@ -521,71 +556,6 @@ namespace winforms_templates
             }
         }
 
-        private void ScanSingle(string deviceName)
-        {
-            if (EZTwain.OpenSource(deviceName))
-            {
-                EZTwain.SetMultiTransfer(false);
-                ClearImages();
-
-                IntPtr hdib = EZTwain.Acquire(this.Handle);
-                if (hdib != IntPtr.Zero)
-                {
-                    AppendImage(hdib);
-                    m_ipage = 0;
-                    RepaintImage();
-                }
-                else
-                {
-                    m_ipage = -1;
-                }
-
-                RepaintImage();
-                EZTwain.ReportLastError("Scanning");
-                EZTwain.CloseSource();
-            }
-            else
-            {
-                MessageBox.Show("Kết nối thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ScanMultiple(string deviceName)
-        {
-            if (EZTwain.OpenSource(deviceName))
-            {
-                System.IntPtr hdib;
-                EZTwain.SetHideUI(true);
-                ClearImages();
-                EZTwain.SelectFeeder(true);
-                EZTwain.SetPixelType(0);
-                EZTwain.SetBitDepth(1);
-                EZTwain.SetResolution(200);
-                EZTwain.SetAutoDeskew(1);
-                EZTwain.SetXferCount(-1);
-                EZTwain.SetAutoScan(true);
-                EZTwain.SetMultiTransfer(true);
-                do
-                {
-                    hdib = EZTwain.Acquire(this.Handle);
-                    if (hdib == IntPtr.Zero) break;
-
-                    AppendImage(hdib);
-                    m_ipage = m_dibs.Length - 1;
-                    RepaintImage();
-                } while (!EZTwain.IsDone());
-                EZTwain.CloseSource();
-                m_ipage = m_dibs.Length > 0 ? 0 : -1;
-                RepaintImage();
-                EZTwain.ReportLastError("Unable to scan.");
-                EZTwain.SetMultiTransfer(false);
-            }
-            else
-            {
-                MessageBox.Show("Kết nối thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnUpload_Click(object sender, System.EventArgs e)
         {
             IntPtr[] dibs = new IntPtr[1000];
@@ -616,41 +586,91 @@ namespace winforms_templates
             picPreview.Properties.ZoomPercent = 100;
         }
 
+        private (LookUpEdit, LookUpEdit, System.Type) GetComboBoxInfo(string tag)
+        {
+            switch (tag)
+            {
+                case "ReportTypes": return (cboReportTypes, null, typeof(ReportTypes));
+                case "Factories": return (cboFactories, null, typeof(Factories));
+                case "Groups": return (cboGroups, cboFactories, typeof(Groups));
+                case "Lvl1": return (cboLvl1, cboGroups, typeof(Level1));
+                case "Lvl2": return (cboLvl2, cboLvl1, typeof(Level2));
+                case "Lvl3": return (cboLvl3, cboLvl2, typeof(Level3));
+                default: return (null, null, null);
+            }
+        }
+
+        private string GetPromptMessage(string tag)
+        {
+            switch (tag)
+            {
+                case "ReportTypes": return ("loại báo cáo");
+                case "Factories": return ("nhà máy");
+                case "Groups": return ("nhóm");
+                case "Lvl1": return ("mức 1");
+                case "Lvl2": return ("mức 2");
+                case "Lvl3": return ("mức 3");
+                default: return ("");
+            }
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var clickedButton = sender as SimpleButton;
-            if (clickedButton == null) return;
+            if (!(sender is SimpleButton clickedButton)) return;
 
             var tag = clickedButton.Tag.ToString();
-            string promptMessage = GetPromptMessage(tag);
-            string inputTitle = $"Thêm {GetInputTitle(tag)}";
-            ComboBoxEdit comboBox = GetComboBox(tag);
+            var (currentCbo, prevCbo, Model) = GetComboBoxInfo(tag);
+            if (prevCbo != null && prevCbo.EditValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn dữ liệu ở ô trên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return; ;
+            }
 
-            var result = XtraInputBox.Show(promptMessage, inputTitle, "");
+            var promptMessage = GetPromptMessage(tag);
+            var result = XtraInputBox.Show("Thêm " + promptMessage, "Thêm", "");
             if (!string.IsNullOrEmpty(result))
             {
-                AddLineToFile(tag, result);
-                LoadDataComboBox(comboBox, tag);
-                comboBox.SelectedIndex = 0;
+                var sqliteHelperType = typeof(SqliteHelper<>).MakeGenericType(Model);
+                var sqliteInstance = Activator.CreateInstance(sqliteHelperType);
+                var modelInstance = Activator.CreateInstance(Model);
+                foreach (var property in Model.GetProperties())
+                {
+                    if (property.Name.Equals("Name", StringComparison.OrdinalIgnoreCase) && property.CanWrite)
+                    {
+                        property.SetValue(modelInstance, result);
+                    }
+                    if (property.Name.EndsWith("ID", StringComparison.OrdinalIgnoreCase) && property.Name.Length > 2 && property.CanWrite && prevCbo != null)
+                    {
+                        property.SetValue(modelInstance, prevCbo.EditValue);
+                    }
+                }
+                var insert = sqliteHelperType.GetMethod("Insert");
+                insert.Invoke(sqliteInstance, new object[] { modelInstance });
+                var loadData = this.GetType().GetMethod("LoadDataComboBox");
+                var LoadData = loadData.MakeGenericMethod(Model);
+                var foreignKeyID = (int?)prevCbo?.EditValue;
+                LoadData.Invoke(this, new object[] { currentCbo, foreignKeyID });
             }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            var clickedButton = sender as SimpleButton;
-            if (clickedButton == null) return;
-
+            if (!(sender is SimpleButton clickedButton)) return;
             var tag = clickedButton.Tag.ToString();
-            string promptMessage = GetRemovePromptMessage(tag, out string txt);
-            ComboBoxEdit comboBox = GetComboBox(tag);
+            var (currentCbo, prevCbo, Model) = GetComboBoxInfo(tag);
 
-            var result = MessageBox.Show(promptMessage, "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                RemoveLineFromFile(tag, txt);
-                LoadDataComboBox(comboBox, tag);
-                comboBox.SelectedIndex = 0;
-            }
+            if (currentCbo != null && currentCbo.Text == "") return;
+            var confirm = MessageBox.Show("Bạn có muốn xóa mục này và dữ liệu liên quan không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes) return;
+
+            var sqliteHelperType = typeof(SqliteHelper<>).MakeGenericType(Model);
+            var sqliteInstance = Activator.CreateInstance(sqliteHelperType);
+            var deleteCurrentOption = sqliteHelperType.GetMethod("Delete");
+            deleteCurrentOption.Invoke(sqliteInstance, new object[] { currentCbo.EditValue });
+            var loadData = this.GetType().GetMethod("LoadDataComboBox");
+            var LoadData = loadData.MakeGenericMethod(Model);
+            var foreignKeyID = (int?)prevCbo?.EditValue;
+            LoadData.Invoke(this, new object[] { currentCbo, foreignKeyID });
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -729,6 +749,121 @@ namespace winforms_templates
                 int rowHandle = hitInfo.RowHandle;
                 string path = view.GetRowCellValue(rowHandle, "AbsolutePath").ToString();
                 Process.Start(path);
+            }
+        }
+
+        private void cboFactories_EditValueChanged(object sender, EventArgs e)
+        {
+            var id = Convert.ToInt32(cboFactories.EditValue);
+            LoadDataComboBox<Groups>(cboGroups, id);
+            cboGroups_EditValueChanged(null, null);
+        }
+
+        private void cboGroups_EditValueChanged(object sender, EventArgs e)
+        {
+            var id = Convert.ToInt32(cboGroups.EditValue);
+            LoadDataComboBox<Level1>(cboLvl1, id);
+            cboLvl1_EditValueChanged(null, null);
+        }
+
+        private void cboLvl1_EditValueChanged(object sender, EventArgs e)
+        {
+            var id = Convert.ToInt32(cboLvl1.EditValue);
+            LoadDataComboBox<Level2>(cboLvl2, id);
+            cboLvl2_EditValueChanged(null, null);
+        }
+
+        private void cboLvl2_EditValueChanged(object sender, EventArgs e)
+        {
+            var id = Convert.ToInt32(cboLvl2.EditValue);
+            LoadDataComboBox<Level3>(cboLvl3, id);
+        }
+
+        #endregion Process Data (Click events, ...)
+
+        private void btnScanOld_Click(object sender, EventArgs e)
+        {
+            string deviceName = cboSource.Text;
+            string output = getOutputPath();
+            if (!Directory.Exists(output))
+            {
+                Directory.CreateDirectory(output);
+            }
+            if (EZTwain.OpenSource(deviceName))
+            {
+                if (cboScanTypeOld.Text == "All")
+                {
+                    EZTwain.SetHideUI(true);
+                    EZTwain.SetPixelType(0);
+                    EZTwain.SetResolution(300);
+                    string fullPath = GetFullPath();
+                    EZTwain.AcquireMultipageFile(this.Handle, fullPath);
+                    Process.Start(output);
+                    return;
+                }
+                if (cboScanTypeOld.Text == "Auto")
+                {
+                    EZTwain.SetHideUI(true);
+                    EZTwain.SetMultiTransfer(true);
+                    if (EZTwain.EnableSource(this.Handle))
+                    {
+                        while (EZTwain.State() > 4)
+                        {
+                            string fullPath = GetFullPath();
+                            int result = EZTwain.AcquireToFilename(this.Handle, fullPath);
+                            if (result == 0)
+                            {
+                                IntPtr[] dibs = new IntPtr[1000];
+                                int n = EZTwain.DIB_LoadArrayFromFilename(dibs, 1000, fullPath);
+                                if (n <= 0) return;
+                                AddImages(dibs, n);
+                            }
+                        }
+                    }
+                    Process.Start(output);
+                    return;
+                }
+                if (cboScanTypeOld.Text == "Multi")
+                {
+                    EZTwain.SetMultiTransfer(true);
+                    EZTwain.SetHideUI(true);
+                    EZTwain.SetUnits(EZTwain.TWUN_INCHES);
+                    EZTwain.SetResolution(200);
+                    EZTwain.SelectFeeder(false);
+                    EZTwain.ResetImageLayout();
+                    EZTwain.SetMultipageFormat(EZTwain.MULTIPAGE_PDF);
+                    string fullPath = GetFullPath();
+                    int result = EZTwain.BeginMultipageFile(fullPath);
+                    if (result == 0)
+                    {
+                        while (true)
+                        {
+                            IntPtr hdib = EZTwain.Acquire(this.Handle);
+                            EZTwain.DisableSource();
+
+                            if (hdib == IntPtr.Zero)
+                                break;
+
+                            int nResult = EZTwain.DibWritePage(hdib);
+                            if (nResult != 0)
+                                break;
+                            AppendImage(hdib);
+                            m_ipage = m_dibs.Length > 0 ? 0 : -1;
+                            RepaintImage();
+
+                            DialogResult confirmContinue = MessageBox.Show("Bạn có scan trang khác nữa không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (confirmContinue != DialogResult.Yes)
+                                break;
+                        }
+                    }
+                    EZTwain.EndMultipageFile();
+                    Process.Start(output);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Kết nối thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -42,6 +42,13 @@
             this.txtDocumentCodeSearch = new DevExpress.XtraEditors.TextEdit();
             this.lblDocumentCodeSearch = new DevExpress.XtraEditors.LabelControl();
             this.splitContainerBody = new DevExpress.XtraEditors.SplitContainerControl();
+            this.cboSource = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cboLvl3 = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboLvl2 = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboLvl1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboGroups = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboFactories = new DevExpress.XtraEditors.LookUpEdit();
+            this.cboReportTypes = new DevExpress.XtraEditors.LookUpEdit();
             this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
             this.lblOutput = new DevExpress.XtraEditors.LabelControl();
             this.cboOutput = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -63,25 +70,18 @@
             this.lblDocumentCode = new DevExpress.XtraEditors.LabelControl();
             this.cboDrives = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblDrives = new DevExpress.XtraEditors.LabelControl();
-            this.cboLvl3 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblLvl3 = new DevExpress.XtraEditors.LabelControl();
-            this.cboLvl2 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblLvl2 = new DevExpress.XtraEditors.LabelControl();
-            this.cboLvl1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblLvl1 = new DevExpress.XtraEditors.LabelControl();
-            this.cboGroups = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblGroups = new DevExpress.XtraEditors.LabelControl();
-            this.cboFactory = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblFactory = new DevExpress.XtraEditors.LabelControl();
             this.btnReloadSource = new DevExpress.XtraEditors.SimpleButton();
-            this.cboReportTypes = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblReportTypes = new DevExpress.XtraEditors.LabelControl();
             this.dtpCreateDate = new DevExpress.XtraEditors.DateEdit();
             this.lblCreateDate = new DevExpress.XtraEditors.LabelControl();
             this.lblScanType = new DevExpress.XtraEditors.LabelControl();
             this.lblSource = new DevExpress.XtraEditors.LabelControl();
             this.cboScanType = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cboSource = new DevExpress.XtraEditors.ComboBoxEdit();
             this.picPreview = new DevExpress.XtraEditors.PictureEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.lblPage = new DevExpress.XtraEditors.LabelControl();
@@ -98,6 +98,10 @@
             this.btnDefaultSize = new DevExpress.XtraEditors.SimpleButton();
             this.pnlHeader = new DevExpress.Utils.Layout.StackPanel();
             this.lblInfo = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.cboScanTypeOld = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.btnScanOld = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnlFooter)).BeginInit();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
@@ -111,19 +115,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBody.Panel2)).BeginInit();
             this.splitContainerBody.Panel2.SuspendLayout();
             this.splitContainerBody.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboOutput.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDocumentCode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboDrives.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboSource.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboGroups.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboFactory.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboFactories.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboReportTypes.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboOutput.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDocumentCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDrives.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpCreateDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpCreateDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboScanType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboSource.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPreview.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
@@ -131,6 +135,9 @@
             this.stackPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlHeader)).BeginInit();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboScanTypeOld.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlFooter
@@ -238,7 +245,7 @@
             this.btnSearch.Location = new System.Drawing.Point(252, 10);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(25, 23);
-            this.btnSearch.TabIndex = 15;
+            this.btnSearch.TabIndex = 16;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtDocumentCodeSearch
@@ -248,7 +255,7 @@
             this.txtDocumentCodeSearch.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDocumentCodeSearch.Properties.Appearance.Options.UseFont = true;
             this.txtDocumentCodeSearch.Size = new System.Drawing.Size(129, 24);
-            this.txtDocumentCodeSearch.TabIndex = 14;
+            this.txtDocumentCodeSearch.TabIndex = 15;
             this.txtDocumentCodeSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDocumentCodeSearch_KeyUp);
             // 
             // lblDocumentCodeSearch
@@ -271,6 +278,14 @@
             // splitContainerBody.Panel1
             // 
             this.splitContainerBody.Panel1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.splitContainerBody.Panel1.Controls.Add(this.panelControl2);
+            this.splitContainerBody.Panel1.Controls.Add(this.cboSource);
+            this.splitContainerBody.Panel1.Controls.Add(this.cboLvl3);
+            this.splitContainerBody.Panel1.Controls.Add(this.cboLvl2);
+            this.splitContainerBody.Panel1.Controls.Add(this.cboLvl1);
+            this.splitContainerBody.Panel1.Controls.Add(this.cboGroups);
+            this.splitContainerBody.Panel1.Controls.Add(this.cboFactories);
+            this.splitContainerBody.Panel1.Controls.Add(this.cboReportTypes);
             this.splitContainerBody.Panel1.Controls.Add(this.btnUpload);
             this.splitContainerBody.Panel1.Controls.Add(this.lblOutput);
             this.splitContainerBody.Panel1.Controls.Add(this.cboOutput);
@@ -292,26 +307,19 @@
             this.splitContainerBody.Panel1.Controls.Add(this.lblDocumentCode);
             this.splitContainerBody.Panel1.Controls.Add(this.cboDrives);
             this.splitContainerBody.Panel1.Controls.Add(this.lblDrives);
-            this.splitContainerBody.Panel1.Controls.Add(this.cboLvl3);
             this.splitContainerBody.Panel1.Controls.Add(this.lblLvl3);
-            this.splitContainerBody.Panel1.Controls.Add(this.cboLvl2);
             this.splitContainerBody.Panel1.Controls.Add(this.lblLvl2);
-            this.splitContainerBody.Panel1.Controls.Add(this.cboLvl1);
             this.splitContainerBody.Panel1.Controls.Add(this.lblLvl1);
-            this.splitContainerBody.Panel1.Controls.Add(this.cboGroups);
             this.splitContainerBody.Panel1.Controls.Add(this.lblGroups);
-            this.splitContainerBody.Panel1.Controls.Add(this.cboFactory);
             this.splitContainerBody.Panel1.Controls.Add(this.lblFactory);
             this.splitContainerBody.Panel1.Controls.Add(this.btnReloadSource);
-            this.splitContainerBody.Panel1.Controls.Add(this.cboReportTypes);
             this.splitContainerBody.Panel1.Controls.Add(this.lblReportTypes);
             this.splitContainerBody.Panel1.Controls.Add(this.dtpCreateDate);
             this.splitContainerBody.Panel1.Controls.Add(this.lblCreateDate);
             this.splitContainerBody.Panel1.Controls.Add(this.lblScanType);
             this.splitContainerBody.Panel1.Controls.Add(this.lblSource);
             this.splitContainerBody.Panel1.Controls.Add(this.cboScanType);
-            this.splitContainerBody.Panel1.Controls.Add(this.cboSource);
-            this.splitContainerBody.Panel1.MinSize = 300;
+            this.splitContainerBody.Panel1.MinSize = 350;
             this.splitContainerBody.Panel1.Text = "Panel1";
             // 
             // splitContainerBody.Panel2
@@ -327,13 +335,190 @@
             this.splitContainerBody.SplitterPosition = 355;
             this.splitContainerBody.TabIndex = 4;
             // 
+            // cboSource
+            // 
+            this.cboSource.Location = new System.Drawing.Point(116, 11);
+            this.cboSource.Name = "cboSource";
+            this.cboSource.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboSource.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboSource.Properties.Appearance.Options.UseFont = true;
+            this.cboSource.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboSource.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboSource.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboSource.Properties.Items.AddRange(new object[] {
+            "PDF",
+            "PNG",
+            "JPG"});
+            this.cboSource.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cboSource.Size = new System.Drawing.Size(130, 24);
+            this.cboSource.TabIndex = 48;
+            // 
+            // cboLvl3
+            // 
+            this.cboLvl3.Location = new System.Drawing.Point(116, 282);
+            this.cboLvl3.Name = "cboLvl3";
+            this.cboLvl3.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboLvl3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLvl3.Properties.Appearance.Options.UseFont = true;
+            this.cboLvl3.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLvl3.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboLvl3.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLvl3.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.cboLvl3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboLvl3.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Level2ID", "Level2ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.cboLvl3.Properties.DropDownRows = 5;
+            this.cboLvl3.Properties.NullText = "";
+            this.cboLvl3.Properties.PopupFormMinSize = new System.Drawing.Size(130, 0);
+            this.cboLvl3.Properties.PopupWidth = 130;
+            this.cboLvl3.Properties.ShowHeader = false;
+            this.cboLvl3.Size = new System.Drawing.Size(130, 24);
+            this.cboLvl3.TabIndex = 47;
+            this.cboLvl3.Tag = "Lvl3";
+            // 
+            // cboLvl2
+            // 
+            this.cboLvl2.Location = new System.Drawing.Point(116, 252);
+            this.cboLvl2.Name = "cboLvl2";
+            this.cboLvl2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboLvl2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLvl2.Properties.Appearance.Options.UseFont = true;
+            this.cboLvl2.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLvl2.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboLvl2.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLvl2.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.cboLvl2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboLvl2.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Level1ID", "Level1ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.cboLvl2.Properties.DropDownRows = 5;
+            this.cboLvl2.Properties.NullText = "";
+            this.cboLvl2.Properties.PopupFormMinSize = new System.Drawing.Size(130, 0);
+            this.cboLvl2.Properties.PopupWidth = 130;
+            this.cboLvl2.Properties.ShowHeader = false;
+            this.cboLvl2.Size = new System.Drawing.Size(130, 24);
+            this.cboLvl2.TabIndex = 46;
+            this.cboLvl2.Tag = "Lvl2";
+            this.cboLvl2.EditValueChanged += new System.EventHandler(this.cboLvl2_EditValueChanged);
+            // 
+            // cboLvl1
+            // 
+            this.cboLvl1.Location = new System.Drawing.Point(116, 222);
+            this.cboLvl1.Name = "cboLvl1";
+            this.cboLvl1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboLvl1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLvl1.Properties.Appearance.Options.UseFont = true;
+            this.cboLvl1.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLvl1.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboLvl1.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboLvl1.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.cboLvl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboLvl1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GroupID", "GroupID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.cboLvl1.Properties.DropDownRows = 5;
+            this.cboLvl1.Properties.NullText = "";
+            this.cboLvl1.Properties.PopupFormMinSize = new System.Drawing.Size(130, 0);
+            this.cboLvl1.Properties.PopupWidth = 130;
+            this.cboLvl1.Properties.ShowHeader = false;
+            this.cboLvl1.Size = new System.Drawing.Size(130, 24);
+            this.cboLvl1.TabIndex = 45;
+            this.cboLvl1.Tag = "Lvl1";
+            this.cboLvl1.EditValueChanged += new System.EventHandler(this.cboLvl1_EditValueChanged);
+            // 
+            // cboGroups
+            // 
+            this.cboGroups.Location = new System.Drawing.Point(116, 192);
+            this.cboGroups.Name = "cboGroups";
+            this.cboGroups.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboGroups.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboGroups.Properties.Appearance.Options.UseFont = true;
+            this.cboGroups.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboGroups.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboGroups.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboGroups.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.cboGroups.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboGroups.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("FactoryID", "FactoryID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.cboGroups.Properties.DropDownRows = 5;
+            this.cboGroups.Properties.NullText = "";
+            this.cboGroups.Properties.PopupFormMinSize = new System.Drawing.Size(130, 0);
+            this.cboGroups.Properties.PopupWidth = 130;
+            this.cboGroups.Properties.ShowHeader = false;
+            this.cboGroups.Size = new System.Drawing.Size(130, 24);
+            this.cboGroups.TabIndex = 44;
+            this.cboGroups.Tag = "Groups";
+            this.cboGroups.EditValueChanged += new System.EventHandler(this.cboGroups_EditValueChanged);
+            // 
+            // cboFactories
+            // 
+            this.cboFactories.Location = new System.Drawing.Point(116, 162);
+            this.cboFactories.Name = "cboFactories";
+            this.cboFactories.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboFactories.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboFactories.Properties.Appearance.Options.UseFont = true;
+            this.cboFactories.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboFactories.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboFactories.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboFactories.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.cboFactories.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboFactories.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
+            this.cboFactories.Properties.DropDownRows = 5;
+            this.cboFactories.Properties.NullText = "";
+            this.cboFactories.Properties.PopupFormMinSize = new System.Drawing.Size(130, 0);
+            this.cboFactories.Properties.PopupWidth = 130;
+            this.cboFactories.Properties.ShowHeader = false;
+            this.cboFactories.Size = new System.Drawing.Size(130, 24);
+            this.cboFactories.TabIndex = 43;
+            this.cboFactories.Tag = "Factories";
+            this.cboFactories.EditValueChanged += new System.EventHandler(this.cboFactories_EditValueChanged);
+            // 
+            // cboReportTypes
+            // 
+            this.cboReportTypes.Location = new System.Drawing.Point(116, 132);
+            this.cboReportTypes.Name = "cboReportTypes";
+            this.cboReportTypes.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboReportTypes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboReportTypes.Properties.Appearance.Options.UseFont = true;
+            this.cboReportTypes.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboReportTypes.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboReportTypes.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboReportTypes.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.cboReportTypes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboReportTypes.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Loại báo cáo")});
+            this.cboReportTypes.Properties.DropDownRows = 5;
+            this.cboReportTypes.Properties.NullText = "";
+            this.cboReportTypes.Properties.PopupFormMinSize = new System.Drawing.Size(130, 0);
+            this.cboReportTypes.Properties.PopupWidth = 130;
+            this.cboReportTypes.Properties.ShowHeader = false;
+            this.cboReportTypes.Size = new System.Drawing.Size(130, 24);
+            this.cboReportTypes.TabIndex = 42;
+            this.cboReportTypes.Tag = "ReportTypes";
+            // 
             // btnUpload
             // 
             this.btnUpload.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUpload.ImageOptions.SvgImage")));
             this.btnUpload.Location = new System.Drawing.Point(22, 442);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(246, 35);
-            this.btnUpload.TabIndex = 41;
+            this.btnUpload.TabIndex = 14;
             this.btnUpload.Text = "Tải lên";
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
@@ -363,7 +548,7 @@
             "PNG",
             "JPG"});
             this.cboOutput.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboOutput.Size = new System.Drawing.Size(129, 24);
+            this.cboOutput.Size = new System.Drawing.Size(130, 24);
             this.cboOutput.TabIndex = 39;
             // 
             // btnSave
@@ -536,7 +721,7 @@
             this.txtDocumentCode.Name = "txtDocumentCode";
             this.txtDocumentCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDocumentCode.Properties.Appearance.Options.UseFont = true;
-            this.txtDocumentCode.Size = new System.Drawing.Size(129, 24);
+            this.txtDocumentCode.Size = new System.Drawing.Size(130, 24);
             this.txtDocumentCode.TabIndex = 11;
             // 
             // lblDocumentCode
@@ -561,7 +746,7 @@
             this.cboDrives.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboDrives.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboDrives.Size = new System.Drawing.Size(129, 24);
+            this.cboDrives.Size = new System.Drawing.Size(130, 24);
             this.cboDrives.TabIndex = 10;
             // 
             // lblDrives
@@ -574,21 +759,6 @@
             this.lblDrives.TabIndex = 19;
             this.lblDrives.Text = "Ổ lưu";
             // 
-            // cboLvl3
-            // 
-            this.cboLvl3.Location = new System.Drawing.Point(116, 282);
-            this.cboLvl3.Name = "cboLvl3";
-            this.cboLvl3.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.cboLvl3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboLvl3.Properties.Appearance.Options.UseFont = true;
-            this.cboLvl3.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboLvl3.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cboLvl3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboLvl3.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboLvl3.Size = new System.Drawing.Size(129, 24);
-            this.cboLvl3.TabIndex = 9;
-            // 
             // lblLvl3
             // 
             this.lblLvl3.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -598,21 +768,6 @@
             this.lblLvl3.Size = new System.Drawing.Size(41, 18);
             this.lblLvl3.TabIndex = 17;
             this.lblLvl3.Text = "Mức 3";
-            // 
-            // cboLvl2
-            // 
-            this.cboLvl2.Location = new System.Drawing.Point(116, 252);
-            this.cboLvl2.Name = "cboLvl2";
-            this.cboLvl2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.cboLvl2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboLvl2.Properties.Appearance.Options.UseFont = true;
-            this.cboLvl2.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboLvl2.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cboLvl2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboLvl2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboLvl2.Size = new System.Drawing.Size(129, 24);
-            this.cboLvl2.TabIndex = 8;
             // 
             // lblLvl2
             // 
@@ -624,21 +779,6 @@
             this.lblLvl2.TabIndex = 15;
             this.lblLvl2.Text = "Mức 2";
             // 
-            // cboLvl1
-            // 
-            this.cboLvl1.Location = new System.Drawing.Point(116, 222);
-            this.cboLvl1.Name = "cboLvl1";
-            this.cboLvl1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.cboLvl1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboLvl1.Properties.Appearance.Options.UseFont = true;
-            this.cboLvl1.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboLvl1.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cboLvl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboLvl1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboLvl1.Size = new System.Drawing.Size(129, 24);
-            this.cboLvl1.TabIndex = 7;
-            // 
             // lblLvl1
             // 
             this.lblLvl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -649,21 +789,6 @@
             this.lblLvl1.TabIndex = 13;
             this.lblLvl1.Text = "Mức 1";
             // 
-            // cboGroups
-            // 
-            this.cboGroups.Location = new System.Drawing.Point(116, 192);
-            this.cboGroups.Name = "cboGroups";
-            this.cboGroups.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.cboGroups.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboGroups.Properties.Appearance.Options.UseFont = true;
-            this.cboGroups.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboGroups.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cboGroups.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboGroups.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboGroups.Size = new System.Drawing.Size(129, 24);
-            this.cboGroups.TabIndex = 6;
-            // 
             // lblGroups
             // 
             this.lblGroups.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -673,21 +798,6 @@
             this.lblGroups.Size = new System.Drawing.Size(39, 18);
             this.lblGroups.TabIndex = 11;
             this.lblGroups.Text = "Nhóm";
-            // 
-            // cboFactory
-            // 
-            this.cboFactory.Location = new System.Drawing.Point(116, 162);
-            this.cboFactory.Name = "cboFactory";
-            this.cboFactory.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.cboFactory.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboFactory.Properties.Appearance.Options.UseFont = true;
-            this.cboFactory.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboFactory.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cboFactory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboFactory.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboFactory.Size = new System.Drawing.Size(129, 24);
-            this.cboFactory.TabIndex = 5;
             // 
             // lblFactory
             // 
@@ -707,23 +817,8 @@
             this.btnReloadSource.Name = "btnReloadSource";
             this.btnReloadSource.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnReloadSource.Size = new System.Drawing.Size(26, 23);
-            this.btnReloadSource.TabIndex = 16;
+            this.btnReloadSource.TabIndex = 17;
             this.btnReloadSource.Click += new System.EventHandler(this.btnReloadSource_Click);
-            // 
-            // cboReportTypes
-            // 
-            this.cboReportTypes.Location = new System.Drawing.Point(116, 132);
-            this.cboReportTypes.Name = "cboReportTypes";
-            this.cboReportTypes.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.cboReportTypes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboReportTypes.Properties.Appearance.Options.UseFont = true;
-            this.cboReportTypes.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboReportTypes.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cboReportTypes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboReportTypes.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboReportTypes.Size = new System.Drawing.Size(129, 24);
-            this.cboReportTypes.TabIndex = 4;
             // 
             // lblReportTypes
             // 
@@ -748,7 +843,7 @@
             this.dtpCreateDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpCreateDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dtpCreateDate.Size = new System.Drawing.Size(129, 24);
+            this.dtpCreateDate.Size = new System.Drawing.Size(130, 24);
             this.dtpCreateDate.TabIndex = 3;
             // 
             // lblCreateDate
@@ -798,24 +893,8 @@
             "Multiple (separate files)",
             "Single"});
             this.cboScanType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboScanType.Size = new System.Drawing.Size(129, 24);
+            this.cboScanType.Size = new System.Drawing.Size(130, 24);
             this.cboScanType.TabIndex = 2;
-            // 
-            // cboSource
-            // 
-            this.cboSource.Location = new System.Drawing.Point(116, 12);
-            this.cboSource.Name = "cboSource";
-            this.cboSource.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.cboSource.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboSource.Properties.Appearance.Options.UseFont = true;
-            this.cboSource.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboSource.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cboSource.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboSource.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboSource.Size = new System.Drawing.Size(129, 24);
-            this.cboSource.TabIndex = 1;
-            this.cboSource.EditValueChanged += new System.EventHandler(this.cboSource_EditValueChanged);
             // 
             // picPreview
             // 
@@ -827,6 +906,7 @@
             this.picPreview.Properties.NullText = " ";
             this.picPreview.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picPreview.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.True;
+            this.picPreview.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.picPreview.Size = new System.Drawing.Size(995, 596);
             this.picPreview.TabIndex = 0;
             // 
@@ -984,7 +1064,7 @@
             this.btnFlipV.Name = "btnFlipV";
             this.btnFlipV.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnFlipV.Size = new System.Drawing.Size(50, 35);
-            this.btnFlipV.TabIndex = 9;
+            this.btnFlipV.TabIndex = 8;
             this.btnFlipV.ToolTip = "Lật ảnh";
             this.btnFlipV.Click += new System.EventHandler(this.btnFlipV_Click);
             // 
@@ -997,7 +1077,7 @@
             this.btnDefaultSize.Name = "btnDefaultSize";
             this.btnDefaultSize.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnDefaultSize.Size = new System.Drawing.Size(50, 35);
-            this.btnDefaultSize.TabIndex = 8;
+            this.btnDefaultSize.TabIndex = 9;
             this.btnDefaultSize.ToolTip = "Kích thước mặc định";
             this.btnDefaultSize.Click += new System.EventHandler(this.btnDefaultSize_Click);
             // 
@@ -1020,9 +1100,59 @@
             this.lblInfo.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Padding = new System.Windows.Forms.Padding(5);
-            this.lblInfo.Size = new System.Drawing.Size(164, 42);
+            this.lblInfo.Size = new System.Drawing.Size(1353, 42);
             this.lblInfo.TabIndex = 2;
             this.lblInfo.Text = "Đang chờ...";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.btnScanOld);
+            this.panelControl2.Controls.Add(this.labelControl1);
+            this.panelControl2.Controls.Add(this.cboScanTypeOld);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl2.Location = new System.Drawing.Point(0, 513);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(351, 173);
+            this.panelControl2.TabIndex = 49;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(26, 21);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(59, 18);
+            this.labelControl1.TabIndex = 5;
+            this.labelControl1.Text = "Loại quét";
+            // 
+            // cboScanTypeOld
+            // 
+            this.cboScanTypeOld.Location = new System.Drawing.Point(116, 18);
+            this.cboScanTypeOld.Name = "cboScanTypeOld";
+            this.cboScanTypeOld.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboScanTypeOld.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboScanTypeOld.Properties.Appearance.Options.UseFont = true;
+            this.cboScanTypeOld.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboScanTypeOld.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboScanTypeOld.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboScanTypeOld.Properties.Items.AddRange(new object[] {
+            "All",
+            "Auto",
+            "Multi"});
+            this.cboScanTypeOld.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cboScanTypeOld.Size = new System.Drawing.Size(130, 24);
+            this.cboScanTypeOld.TabIndex = 4;
+            // 
+            // btnScanOld
+            // 
+            this.btnScanOld.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btnScanOld.Location = new System.Drawing.Point(22, 58);
+            this.btnScanOld.Name = "btnScanOld";
+            this.btnScanOld.Size = new System.Drawing.Size(246, 35);
+            this.btnScanOld.TabIndex = 13;
+            this.btnScanOld.Text = "Quét";
+            this.btnScanOld.Click += new System.EventHandler(this.btnScanOld_Click);
             // 
             // frmMain
             // 
@@ -1051,19 +1181,19 @@
             this.splitContainerBody.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBody)).EndInit();
             this.splitContainerBody.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cboOutput.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDocumentCode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboDrives.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboSource.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboGroups.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboFactory.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboFactories.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboReportTypes.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboOutput.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDocumentCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDrives.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpCreateDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpCreateDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboScanType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboSource.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPreview.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
@@ -1073,6 +1203,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlHeader)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboScanTypeOld.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1097,27 +1231,17 @@
         private DevExpress.XtraEditors.SimpleButton btnAddReportType;
         private DevExpress.XtraEditors.TextEdit txtDocumentCode;
         private DevExpress.XtraEditors.LabelControl lblDocumentCode;
-        private DevExpress.XtraEditors.ComboBoxEdit cboDrives;
         private DevExpress.XtraEditors.LabelControl lblDrives;
-        private DevExpress.XtraEditors.ComboBoxEdit cboLvl3;
         private DevExpress.XtraEditors.LabelControl lblLvl3;
-        private DevExpress.XtraEditors.ComboBoxEdit cboLvl2;
         private DevExpress.XtraEditors.LabelControl lblLvl2;
-        private DevExpress.XtraEditors.ComboBoxEdit cboLvl1;
         private DevExpress.XtraEditors.LabelControl lblLvl1;
-        private DevExpress.XtraEditors.ComboBoxEdit cboGroups;
         private DevExpress.XtraEditors.LabelControl lblGroups;
-        private DevExpress.XtraEditors.ComboBoxEdit cboFactory;
         private DevExpress.XtraEditors.LabelControl lblFactory;
         private DevExpress.XtraEditors.SimpleButton btnReloadSource;
-        private DevExpress.XtraEditors.ComboBoxEdit cboReportTypes;
         private DevExpress.XtraEditors.LabelControl lblReportTypes;
-        private DevExpress.XtraEditors.DateEdit dtpCreateDate;
         private DevExpress.XtraEditors.LabelControl lblCreateDate;
         private DevExpress.XtraEditors.LabelControl lblScanType;
         private DevExpress.XtraEditors.LabelControl lblSource;
-        private DevExpress.XtraEditors.ComboBoxEdit cboScanType;
-        private DevExpress.XtraEditors.ComboBoxEdit cboSource;
         private DevExpress.Utils.Layout.StackPanel stackPanel1;
         private DevExpress.XtraEditors.SimpleButton btnFirst;
         private DevExpress.XtraEditors.SimpleButton btnPrev;
@@ -1133,7 +1257,6 @@
         private DevExpress.XtraEditors.LabelControl lblDocumentCodeSearch;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.LabelControl lblOutput;
-        private DevExpress.XtraEditors.ComboBoxEdit cboOutput;
         private DevExpress.XtraEditors.LabelControl lblInfo;
         private DevExpress.XtraEditors.SimpleButton btn90Left;
         private DevExpress.XtraEditors.SimpleButton btn90Right;
@@ -1148,5 +1271,20 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPath;
         private DevExpress.XtraGrid.Columns.GridColumn colSTT;
         private DevExpress.XtraEditors.SimpleButton btnFlipV;
+        private DevExpress.XtraEditors.LookUpEdit cboLvl3;
+        private DevExpress.XtraEditors.LookUpEdit cboLvl2;
+        private DevExpress.XtraEditors.LookUpEdit cboLvl1;
+        private DevExpress.XtraEditors.LookUpEdit cboGroups;
+        private DevExpress.XtraEditors.LookUpEdit cboFactories;
+        private DevExpress.XtraEditors.LookUpEdit cboReportTypes;
+        private DevExpress.XtraEditors.ComboBoxEdit cboOutput;
+        private DevExpress.XtraEditors.ComboBoxEdit cboDrives;
+        private DevExpress.XtraEditors.DateEdit dtpCreateDate;
+        private DevExpress.XtraEditors.ComboBoxEdit cboScanType;
+        private DevExpress.XtraEditors.ComboBoxEdit cboSource;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.ComboBoxEdit cboScanTypeOld;
+        private DevExpress.XtraEditors.SimpleButton btnScanOld;
     }
 }
