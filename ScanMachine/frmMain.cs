@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -32,8 +31,7 @@ namespace winforms_templates
         public void LoadData()
         {
             LoadMachineSouce();
-            cboOutput.SelectedIndex = 0;
-            cboScanType.SelectedIndex = 0;
+            cboOutput.SelectedIndex = cboScanType.SelectedIndex = cboDuplex.SelectedIndex = cboColor.SelectedIndex = 0;
             LoadDataComboBox<ReportTypes>(cboReportTypes);
             LoadDataComboBox<Factories>(cboFactories);
             cboReportTypes.ItemIndex = cboFactories.ItemIndex = 0;
@@ -107,45 +105,6 @@ namespace winforms_templates
         }
 
         #endregion Load Data
-
-        #region CRUD setting files
-
-        private static List<string> ReadFileLines(string fileName)
-        {
-            string filePath = Path.Combine("config", fileName + ".txt");
-            List<string> lines = new List<string>();
-
-            if (File.Exists(filePath))
-            {
-                lines = new List<string>(File.ReadAllLines(filePath).Where(line => !string.IsNullOrWhiteSpace(line)));
-            }
-
-            return lines;
-        }
-
-        private static bool AddLineToFile(string fileName, string lineToAdd)
-        {
-            string filePath = Path.Combine("config", fileName + ".txt");
-            if (String.IsNullOrWhiteSpace(lineToAdd) || !File.Exists(filePath)) return false;
-
-            using (StreamWriter writer = new StreamWriter(filePath, true))
-            {
-                writer.WriteLine(lineToAdd);
-                return true;
-            }
-        }
-
-        private static bool RemoveLineFromFile(string fileName, string lineToRemove)
-        {
-            string filePath = Path.Combine("config", fileName + ".txt");
-            if (String.IsNullOrWhiteSpace(lineToRemove) || !File.Exists(filePath)) return false;
-            List<string> lines = File.ReadAllLines(filePath).ToList();
-            lines.RemoveAll(line => line.Contains(lineToRemove));
-            File.WriteAllLines(filePath, lines);
-            return true;
-        }
-
-        #endregion CRUD setting files
 
         #region EZTwain related stuffs
 
@@ -295,90 +254,6 @@ namespace winforms_templates
             m_dibs = dibs;
         }
 
-        private void ScanSingle(string deviceName)
-        {
-            if (EZTwain.OpenSource(deviceName))
-            {
-                EZTwain.SetMultiTransfer(false);
-                ClearImages();
-
-                IntPtr hdib = EZTwain.Acquire(this.Handle);
-                if (hdib != IntPtr.Zero)
-                {
-                    AppendImage(hdib);
-                    m_ipage = 0;
-                    RepaintImage();
-                }
-                else
-                {
-                    m_ipage = -1;
-                }
-
-                RepaintImage();
-                EZTwain.ReportLastError("Scanning");
-                EZTwain.CloseSource();
-            }
-            else
-            {
-                MessageBox.Show("Kết nối thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ScanMultiple(string deviceName)
-        {
-            if (EZTwain.OpenSource(deviceName))
-            {
-                EZTwain.SetHideUI(true);
-                ClearImages();
-                EZTwain.SelectFeeder(true);
-                EZTwain.SetPixelType(0);
-                EZTwain.SetBitDepth(1);
-                EZTwain.SetResolution(300);
-                EZTwain.SetAutoDeskew(1);
-                EZTwain.SetXferCount(-1);
-                EZTwain.SetAutoScan(true);
-
-                string tempDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TempScans");
-                Directory.CreateDirectory(tempDirectory);
-                string baseFileName = "scanned_page";
-                string basePath = Path.Combine(tempDirectory, $"{baseFileName}0.png");
-
-                int pagesScanned = EZTwain.AcquireImagesToFiles(this.Handle, basePath);
-
-                if (pagesScanned > 0)
-                {
-                    for (int i = 0; i < pagesScanned; i++)
-                    {
-                        string fileName = $"{baseFileName}{i}.png";
-                        using (var image = Image.FromFile(fileName))
-                        {
-                            IntPtr hdib = EZTwain.DIB_FromImage(image);
-                            if (hdib != IntPtr.Zero)
-                            {
-                                AppendImage(hdib);
-                            }
-                        }
-                    }
-
-                    m_ipage = m_dibs.Length > 0 ? 0 : -1;
-                    RepaintImage();
-                }
-                else
-                {
-                    MessageBox.Show("Scan thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                EZTwain.CloseSource();
-
-                // Delete temp directory and its contents
-                Directory.Delete(tempDirectory, true);
-            }
-            else
-            {
-                MessageBox.Show("Kết nối thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         #endregion EZTwain related stuffs
 
         #region Process Data (Click events, ...)
@@ -415,67 +290,6 @@ namespace winforms_templates
         private void btnReloadSource_Click(object sender, EventArgs e)
         {
             LoadMachineSouce();
-        }
-
-        private void btnScan_Click(object sender, EventArgs e)
-        {
-            string deviceName = cboSource.Text;
-            if (cboScanType.Text.ToLower() == "single" && !String.IsNullOrWhiteSpace(deviceName))
-            {
-                ScanSingle(deviceName);
-            }
-            else
-            {
-                ScanMultiple(deviceName);
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            string output = getOutputPath();
-            if (!Directory.Exists(output))
-            {
-                Directory.CreateDirectory(output);
-            }
-
-            string createDate = DateTime.Now.ToString("ddMMyyyyHHmmss");
-            string fileType = cboOutput.Text.ToLower();
-            string documentCode = txtDocumentCode.Text;
-
-            bool saveAsSingleFile = cboScanType.SelectedIndex != 2;
-
-            try
-            {
-                if (m_dibs.Length > 0)
-                {
-                    if (saveAsSingleFile)
-                    {
-                        // Save as a single file
-                        string fileName = $"{documentCode}_{createDate}.{fileType}";
-                        string fullPath = Path.Combine(output, fileName);
-                        EZTwain.DIB_WriteArrayToFilename(m_dibs, m_dibs.Length, fullPath);
-                    }
-                    else
-                    {
-                        // Save each image separately
-                        for (int i = 0; i < m_dibs.Length; i++)
-                        {
-                            string fileName = $"{documentCode}_{createDate}_{i + 1}.{fileType}";
-                            string fullPath = Path.Combine(output, fileName);
-                            EZTwain.DIB_WriteToFilename(m_dibs[i], fullPath);
-                        }
-                    }
-
-                    EZTwain.ReportLastError("Saving to file");
-
-                    // Open the folder
-                    Process.Start(output);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btn90Left_Click(object sender, EventArgs e)
@@ -791,17 +605,27 @@ namespace winforms_templates
             }
             if (EZTwain.OpenSource(deviceName))
             {
-                if (cboScanTypeOld.Text == "All")
+                if (cboScanType.Text == "All")
                 {
                     EZTwain.SetHideUI(true);
-                    EZTwain.SetPixelType(0);
                     EZTwain.SetResolution(300);
+
+                    bool enableDuplex = (cboDuplex.SelectedIndex == 1);
+                    bool enableColor = (cboColor.SelectedIndex == 1);
+                    bool enableDuplexResult = EZTwain.EnableDuplex(enableDuplex);
+                    bool enableColorResult = EZTwain.SetPixelType(enableColor ? EZTwain.TWPT_RGB : EZTwain.TWPT_BW);
+                    if (!enableDuplexResult || !enableColorResult)
+                        MessageBox.Show("Thiết lập chế độ scan hai mặt/ scan màu không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                     string fullPath = GetFullPath();
                     EZTwain.AcquireMultipageFile(this.Handle, fullPath);
                     Process.Start(output);
+
+                    EZTwain.EnableDuplex(false);
+                    EZTwain.SetPixelType(EZTwain.TWPT_BW);
                     return;
                 }
-                if (cboScanTypeOld.Text == "Auto")
+                if (cboScanType.Text == "Auto")
                 {
                     EZTwain.SetHideUI(true);
                     EZTwain.SetMultiTransfer(true);
@@ -823,7 +647,7 @@ namespace winforms_templates
                     Process.Start(output);
                     return;
                 }
-                if (cboScanTypeOld.Text == "Multi")
+                if (cboScanType.Text == "Multi")
                 {
                     EZTwain.SetMultiTransfer(true);
                     EZTwain.SetHideUI(true);

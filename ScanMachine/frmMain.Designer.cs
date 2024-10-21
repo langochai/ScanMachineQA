@@ -42,22 +42,22 @@
             this.txtDocumentCodeSearch = new DevExpress.XtraEditors.TextEdit();
             this.lblDocumentCodeSearch = new DevExpress.XtraEditors.LabelControl();
             this.splitContainerBody = new DevExpress.XtraEditors.SplitContainerControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.lblColor = new DevExpress.XtraEditors.LabelControl();
+            this.cboColor = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lblDuplex = new DevExpress.XtraEditors.LabelControl();
+            this.cboDuplex = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnScanOld = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.cboScanTypeOld = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lblScanType = new DevExpress.XtraEditors.LabelControl();
             this.cboSource = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cboScanType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cboLvl3 = new DevExpress.XtraEditors.LookUpEdit();
             this.cboLvl2 = new DevExpress.XtraEditors.LookUpEdit();
             this.cboLvl1 = new DevExpress.XtraEditors.LookUpEdit();
             this.cboGroups = new DevExpress.XtraEditors.LookUpEdit();
             this.cboFactories = new DevExpress.XtraEditors.LookUpEdit();
             this.cboReportTypes = new DevExpress.XtraEditors.LookUpEdit();
-            this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
             this.lblOutput = new DevExpress.XtraEditors.LabelControl();
             this.cboOutput = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.btnScan = new DevExpress.XtraEditors.SimpleButton();
             this.btnRemoveLvl2 = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddLvl2 = new DevExpress.XtraEditors.SimpleButton();
             this.btnRemoveLvl1 = new DevExpress.XtraEditors.SimpleButton();
@@ -83,9 +83,7 @@
             this.lblReportTypes = new DevExpress.XtraEditors.LabelControl();
             this.dtpCreateDate = new DevExpress.XtraEditors.DateEdit();
             this.lblCreateDate = new DevExpress.XtraEditors.LabelControl();
-            this.lblScanType = new DevExpress.XtraEditors.LabelControl();
             this.lblSource = new DevExpress.XtraEditors.LabelControl();
-            this.cboScanType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.picPreview = new DevExpress.XtraEditors.PictureEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.lblPage = new DevExpress.XtraEditors.LabelControl();
@@ -115,10 +113,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBody.Panel2)).BeginInit();
             this.splitContainerBody.Panel2.SuspendLayout();
             this.splitContainerBody.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboScanTypeOld.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboColor.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDuplex.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboSource.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboScanType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl1.Properties)).BeginInit();
@@ -130,7 +128,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboDrives.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpCreateDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpCreateDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboScanType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPreview.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
@@ -278,19 +275,22 @@
             // splitContainerBody.Panel1
             // 
             this.splitContainerBody.Panel1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.splitContainerBody.Panel1.Controls.Add(this.panelControl2);
+            this.splitContainerBody.Panel1.Controls.Add(this.lblColor);
+            this.splitContainerBody.Panel1.Controls.Add(this.cboColor);
+            this.splitContainerBody.Panel1.Controls.Add(this.lblDuplex);
+            this.splitContainerBody.Panel1.Controls.Add(this.cboDuplex);
+            this.splitContainerBody.Panel1.Controls.Add(this.btnScanOld);
+            this.splitContainerBody.Panel1.Controls.Add(this.lblScanType);
             this.splitContainerBody.Panel1.Controls.Add(this.cboSource);
+            this.splitContainerBody.Panel1.Controls.Add(this.cboScanType);
             this.splitContainerBody.Panel1.Controls.Add(this.cboLvl3);
             this.splitContainerBody.Panel1.Controls.Add(this.cboLvl2);
             this.splitContainerBody.Panel1.Controls.Add(this.cboLvl1);
             this.splitContainerBody.Panel1.Controls.Add(this.cboGroups);
             this.splitContainerBody.Panel1.Controls.Add(this.cboFactories);
             this.splitContainerBody.Panel1.Controls.Add(this.cboReportTypes);
-            this.splitContainerBody.Panel1.Controls.Add(this.btnUpload);
             this.splitContainerBody.Panel1.Controls.Add(this.lblOutput);
             this.splitContainerBody.Panel1.Controls.Add(this.cboOutput);
-            this.splitContainerBody.Panel1.Controls.Add(this.btnSave);
-            this.splitContainerBody.Panel1.Controls.Add(this.btnScan);
             this.splitContainerBody.Panel1.Controls.Add(this.btnRemoveLvl2);
             this.splitContainerBody.Panel1.Controls.Add(this.btnAddLvl2);
             this.splitContainerBody.Panel1.Controls.Add(this.btnRemoveLvl1);
@@ -316,9 +316,7 @@
             this.splitContainerBody.Panel1.Controls.Add(this.lblReportTypes);
             this.splitContainerBody.Panel1.Controls.Add(this.dtpCreateDate);
             this.splitContainerBody.Panel1.Controls.Add(this.lblCreateDate);
-            this.splitContainerBody.Panel1.Controls.Add(this.lblScanType);
             this.splitContainerBody.Panel1.Controls.Add(this.lblSource);
-            this.splitContainerBody.Panel1.Controls.Add(this.cboScanType);
             this.splitContainerBody.Panel1.MinSize = 350;
             this.splitContainerBody.Panel1.Text = "Panel1";
             // 
@@ -335,55 +333,81 @@
             this.splitContainerBody.SplitterPosition = 355;
             this.splitContainerBody.TabIndex = 4;
             // 
-            // panelControl2
+            // lblColor
             // 
-            this.panelControl2.Controls.Add(this.btnScanOld);
-            this.panelControl2.Controls.Add(this.labelControl1);
-            this.panelControl2.Controls.Add(this.cboScanTypeOld);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(0, 513);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(351, 173);
-            this.panelControl2.TabIndex = 49;
+            this.lblColor.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblColor.Appearance.Options.UseFont = true;
+            this.lblColor.Location = new System.Drawing.Point(25, 135);
+            this.lblColor.Name = "lblColor";
+            this.lblColor.Size = new System.Drawing.Size(59, 18);
+            this.lblColor.TabIndex = 52;
+            this.lblColor.Text = "Loại màu";
+            // 
+            // cboColor
+            // 
+            this.cboColor.Location = new System.Drawing.Point(115, 132);
+            this.cboColor.Name = "cboColor";
+            this.cboColor.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboColor.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboColor.Properties.Appearance.Options.UseFont = true;
+            this.cboColor.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboColor.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboColor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboColor.Properties.Items.AddRange(new object[] {
+            "Đen trắng",
+            "Có màu"});
+            this.cboColor.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cboColor.Size = new System.Drawing.Size(130, 24);
+            this.cboColor.TabIndex = 51;
+            // 
+            // lblDuplex
+            // 
+            this.lblDuplex.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDuplex.Appearance.Options.UseFont = true;
+            this.lblDuplex.Location = new System.Drawing.Point(26, 105);
+            this.lblDuplex.Name = "lblDuplex";
+            this.lblDuplex.Size = new System.Drawing.Size(59, 18);
+            this.lblDuplex.TabIndex = 50;
+            this.lblDuplex.Text = "Loại quét";
+            // 
+            // cboDuplex
+            // 
+            this.cboDuplex.Location = new System.Drawing.Point(116, 102);
+            this.cboDuplex.Name = "cboDuplex";
+            this.cboDuplex.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboDuplex.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDuplex.Properties.Appearance.Options.UseFont = true;
+            this.cboDuplex.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDuplex.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboDuplex.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboDuplex.Properties.Items.AddRange(new object[] {
+            "Một mặt",
+            "Hai mặt"});
+            this.cboDuplex.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cboDuplex.Size = new System.Drawing.Size(130, 24);
+            this.cboDuplex.TabIndex = 49;
             // 
             // btnScanOld
             // 
             this.btnScanOld.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnScanOld.ImageOptions.SvgImage")));
-            this.btnScanOld.Location = new System.Drawing.Point(22, 58);
+            this.btnScanOld.Location = new System.Drawing.Point(22, 449);
             this.btnScanOld.Name = "btnScanOld";
-            this.btnScanOld.Size = new System.Drawing.Size(246, 35);
+            this.btnScanOld.Size = new System.Drawing.Size(223, 35);
             this.btnScanOld.TabIndex = 13;
             this.btnScanOld.Text = "Quét";
             this.btnScanOld.Click += new System.EventHandler(this.btnScanOld_Click);
             // 
-            // labelControl1
+            // lblScanType
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(26, 21);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(59, 18);
-            this.labelControl1.TabIndex = 5;
-            this.labelControl1.Text = "Loại quét";
-            // 
-            // cboScanTypeOld
-            // 
-            this.cboScanTypeOld.Location = new System.Drawing.Point(116, 18);
-            this.cboScanTypeOld.Name = "cboScanTypeOld";
-            this.cboScanTypeOld.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.cboScanTypeOld.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboScanTypeOld.Properties.Appearance.Options.UseFont = true;
-            this.cboScanTypeOld.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboScanTypeOld.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cboScanTypeOld.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboScanTypeOld.Properties.Items.AddRange(new object[] {
-            "All",
-            "Auto",
-            "Multi"});
-            this.cboScanTypeOld.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboScanTypeOld.Size = new System.Drawing.Size(130, 24);
-            this.cboScanTypeOld.TabIndex = 4;
+            this.lblScanType.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScanType.Appearance.Options.UseFont = true;
+            this.lblScanType.Location = new System.Drawing.Point(26, 75);
+            this.lblScanType.Name = "lblScanType";
+            this.lblScanType.Size = new System.Drawing.Size(61, 18);
+            this.lblScanType.TabIndex = 5;
+            this.lblScanType.Text = "Kiểu quét";
             // 
             // cboSource
             // 
@@ -403,10 +427,30 @@
             this.cboSource.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboSource.Size = new System.Drawing.Size(130, 24);
             this.cboSource.TabIndex = 48;
+            this.cboSource.SelectedIndexChanged += new System.EventHandler(this.cboSource_EditValueChanged);
+            // 
+            // cboScanType
+            // 
+            this.cboScanType.Location = new System.Drawing.Point(116, 72);
+            this.cboScanType.Name = "cboScanType";
+            this.cboScanType.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.cboScanType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboScanType.Properties.Appearance.Options.UseFont = true;
+            this.cboScanType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboScanType.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cboScanType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboScanType.Properties.Items.AddRange(new object[] {
+            "All",
+            "Multi",
+            "Auto"});
+            this.cboScanType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cboScanType.Size = new System.Drawing.Size(130, 24);
+            this.cboScanType.TabIndex = 4;
             // 
             // cboLvl3
             // 
-            this.cboLvl3.Location = new System.Drawing.Point(116, 282);
+            this.cboLvl3.Location = new System.Drawing.Point(116, 342);
             this.cboLvl3.Name = "cboLvl3";
             this.cboLvl3.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cboLvl3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -432,7 +476,7 @@
             // 
             // cboLvl2
             // 
-            this.cboLvl2.Location = new System.Drawing.Point(116, 252);
+            this.cboLvl2.Location = new System.Drawing.Point(116, 312);
             this.cboLvl2.Name = "cboLvl2";
             this.cboLvl2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cboLvl2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -459,7 +503,7 @@
             // 
             // cboLvl1
             // 
-            this.cboLvl1.Location = new System.Drawing.Point(116, 222);
+            this.cboLvl1.Location = new System.Drawing.Point(116, 282);
             this.cboLvl1.Name = "cboLvl1";
             this.cboLvl1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cboLvl1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -486,7 +530,7 @@
             // 
             // cboGroups
             // 
-            this.cboGroups.Location = new System.Drawing.Point(116, 192);
+            this.cboGroups.Location = new System.Drawing.Point(116, 252);
             this.cboGroups.Name = "cboGroups";
             this.cboGroups.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cboGroups.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -513,7 +557,7 @@
             // 
             // cboFactories
             // 
-            this.cboFactories.Location = new System.Drawing.Point(116, 162);
+            this.cboFactories.Location = new System.Drawing.Point(116, 222);
             this.cboFactories.Name = "cboFactories";
             this.cboFactories.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cboFactories.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -539,7 +583,7 @@
             // 
             // cboReportTypes
             // 
-            this.cboReportTypes.Location = new System.Drawing.Point(116, 132);
+            this.cboReportTypes.Location = new System.Drawing.Point(116, 192);
             this.cboReportTypes.Name = "cboReportTypes";
             this.cboReportTypes.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cboReportTypes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -561,16 +605,6 @@
             this.cboReportTypes.Size = new System.Drawing.Size(130, 24);
             this.cboReportTypes.TabIndex = 42;
             this.cboReportTypes.Tag = "ReportTypes";
-            // 
-            // btnUpload
-            // 
-            this.btnUpload.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUpload.ImageOptions.SvgImage")));
-            this.btnUpload.Location = new System.Drawing.Point(22, 442);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(246, 35);
-            this.btnUpload.TabIndex = 14;
-            this.btnUpload.Text = "Tải lên";
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // lblOutput
             // 
@@ -601,31 +635,11 @@
             this.cboOutput.Size = new System.Drawing.Size(130, 24);
             this.cboOutput.TabIndex = 39;
             // 
-            // btnSave
-            // 
-            this.btnSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSave.ImageOptions.SvgImage")));
-            this.btnSave.Location = new System.Drawing.Point(148, 392);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(120, 35);
-            this.btnSave.TabIndex = 13;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnScan
-            // 
-            this.btnScan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnScan.ImageOptions.SvgImage")));
-            this.btnScan.Location = new System.Drawing.Point(22, 392);
-            this.btnScan.Name = "btnScan";
-            this.btnScan.Size = new System.Drawing.Size(120, 35);
-            this.btnScan.TabIndex = 12;
-            this.btnScan.Text = "Quét";
-            this.btnScan.Click += new System.EventHandler(this.btnScan_Click);
-            // 
             // btnRemoveLvl2
             // 
             this.btnRemoveLvl2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveLvl2.ImageOptions.SvgImage")));
             this.btnRemoveLvl2.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnRemoveLvl2.Location = new System.Drawing.Point(286, 253);
+            this.btnRemoveLvl2.Location = new System.Drawing.Point(286, 313);
             this.btnRemoveLvl2.Name = "btnRemoveLvl2";
             this.btnRemoveLvl2.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnRemoveLvl2.Size = new System.Drawing.Size(26, 23);
@@ -637,7 +651,7 @@
             // 
             this.btnAddLvl2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddLvl2.ImageOptions.SvgImage")));
             this.btnAddLvl2.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddLvl2.Location = new System.Drawing.Point(254, 253);
+            this.btnAddLvl2.Location = new System.Drawing.Point(254, 313);
             this.btnAddLvl2.Name = "btnAddLvl2";
             this.btnAddLvl2.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAddLvl2.Size = new System.Drawing.Size(26, 23);
@@ -649,7 +663,7 @@
             // 
             this.btnRemoveLvl1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveLvl1.ImageOptions.SvgImage")));
             this.btnRemoveLvl1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnRemoveLvl1.Location = new System.Drawing.Point(286, 223);
+            this.btnRemoveLvl1.Location = new System.Drawing.Point(286, 283);
             this.btnRemoveLvl1.Name = "btnRemoveLvl1";
             this.btnRemoveLvl1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnRemoveLvl1.Size = new System.Drawing.Size(26, 23);
@@ -661,7 +675,7 @@
             // 
             this.btnAddLvl1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddLvl1.ImageOptions.SvgImage")));
             this.btnAddLvl1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddLvl1.Location = new System.Drawing.Point(254, 223);
+            this.btnAddLvl1.Location = new System.Drawing.Point(254, 283);
             this.btnAddLvl1.Name = "btnAddLvl1";
             this.btnAddLvl1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAddLvl1.Size = new System.Drawing.Size(26, 23);
@@ -673,7 +687,7 @@
             // 
             this.btnRemoveGroup.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveGroup.ImageOptions.SvgImage")));
             this.btnRemoveGroup.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnRemoveGroup.Location = new System.Drawing.Point(286, 193);
+            this.btnRemoveGroup.Location = new System.Drawing.Point(286, 253);
             this.btnRemoveGroup.Name = "btnRemoveGroup";
             this.btnRemoveGroup.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnRemoveGroup.Size = new System.Drawing.Size(26, 23);
@@ -685,7 +699,7 @@
             // 
             this.btnAddGroup.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddGroup.ImageOptions.SvgImage")));
             this.btnAddGroup.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddGroup.Location = new System.Drawing.Point(254, 193);
+            this.btnAddGroup.Location = new System.Drawing.Point(254, 253);
             this.btnAddGroup.Name = "btnAddGroup";
             this.btnAddGroup.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAddGroup.Size = new System.Drawing.Size(26, 23);
@@ -697,7 +711,7 @@
             // 
             this.btnRemoveLvl3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveLvl3.ImageOptions.SvgImage")));
             this.btnRemoveLvl3.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnRemoveLvl3.Location = new System.Drawing.Point(286, 283);
+            this.btnRemoveLvl3.Location = new System.Drawing.Point(286, 343);
             this.btnRemoveLvl3.Name = "btnRemoveLvl3";
             this.btnRemoveLvl3.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnRemoveLvl3.Size = new System.Drawing.Size(26, 23);
@@ -709,7 +723,7 @@
             // 
             this.btnAddLvl3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddLvl3.ImageOptions.SvgImage")));
             this.btnAddLvl3.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddLvl3.Location = new System.Drawing.Point(254, 283);
+            this.btnAddLvl3.Location = new System.Drawing.Point(254, 343);
             this.btnAddLvl3.Name = "btnAddLvl3";
             this.btnAddLvl3.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAddLvl3.Size = new System.Drawing.Size(26, 23);
@@ -721,7 +735,7 @@
             // 
             this.btnRemoveFactory.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveFactory.ImageOptions.SvgImage")));
             this.btnRemoveFactory.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnRemoveFactory.Location = new System.Drawing.Point(286, 162);
+            this.btnRemoveFactory.Location = new System.Drawing.Point(286, 222);
             this.btnRemoveFactory.Name = "btnRemoveFactory";
             this.btnRemoveFactory.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnRemoveFactory.Size = new System.Drawing.Size(26, 23);
@@ -733,7 +747,7 @@
             // 
             this.btnAddFactory.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddFactory.ImageOptions.SvgImage")));
             this.btnAddFactory.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddFactory.Location = new System.Drawing.Point(254, 162);
+            this.btnAddFactory.Location = new System.Drawing.Point(254, 222);
             this.btnAddFactory.Name = "btnAddFactory";
             this.btnAddFactory.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAddFactory.Size = new System.Drawing.Size(26, 23);
@@ -745,7 +759,7 @@
             // 
             this.btnRemoveReportType.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveReportType.ImageOptions.SvgImage")));
             this.btnRemoveReportType.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnRemoveReportType.Location = new System.Drawing.Point(286, 133);
+            this.btnRemoveReportType.Location = new System.Drawing.Point(286, 193);
             this.btnRemoveReportType.Name = "btnRemoveReportType";
             this.btnRemoveReportType.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnRemoveReportType.Size = new System.Drawing.Size(26, 23);
@@ -757,7 +771,7 @@
             // 
             this.btnAddReportType.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddReportType.ImageOptions.SvgImage")));
             this.btnAddReportType.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddReportType.Location = new System.Drawing.Point(254, 133);
+            this.btnAddReportType.Location = new System.Drawing.Point(254, 193);
             this.btnAddReportType.Name = "btnAddReportType";
             this.btnAddReportType.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAddReportType.Size = new System.Drawing.Size(26, 23);
@@ -767,7 +781,7 @@
             // 
             // txtDocumentCode
             // 
-            this.txtDocumentCode.Location = new System.Drawing.Point(116, 342);
+            this.txtDocumentCode.Location = new System.Drawing.Point(116, 402);
             this.txtDocumentCode.Name = "txtDocumentCode";
             this.txtDocumentCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDocumentCode.Properties.Appearance.Options.UseFont = true;
@@ -778,7 +792,7 @@
             // 
             this.lblDocumentCode.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDocumentCode.Appearance.Options.UseFont = true;
-            this.lblDocumentCode.Location = new System.Drawing.Point(26, 345);
+            this.lblDocumentCode.Location = new System.Drawing.Point(26, 405);
             this.lblDocumentCode.Name = "lblDocumentCode";
             this.lblDocumentCode.Size = new System.Drawing.Size(65, 18);
             this.lblDocumentCode.TabIndex = 21;
@@ -786,7 +800,7 @@
             // 
             // cboDrives
             // 
-            this.cboDrives.Location = new System.Drawing.Point(116, 312);
+            this.cboDrives.Location = new System.Drawing.Point(116, 372);
             this.cboDrives.Name = "cboDrives";
             this.cboDrives.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.cboDrives.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -803,7 +817,7 @@
             // 
             this.lblDrives.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDrives.Appearance.Options.UseFont = true;
-            this.lblDrives.Location = new System.Drawing.Point(26, 315);
+            this.lblDrives.Location = new System.Drawing.Point(26, 375);
             this.lblDrives.Name = "lblDrives";
             this.lblDrives.Size = new System.Drawing.Size(35, 18);
             this.lblDrives.TabIndex = 19;
@@ -813,7 +827,7 @@
             // 
             this.lblLvl3.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLvl3.Appearance.Options.UseFont = true;
-            this.lblLvl3.Location = new System.Drawing.Point(26, 285);
+            this.lblLvl3.Location = new System.Drawing.Point(26, 345);
             this.lblLvl3.Name = "lblLvl3";
             this.lblLvl3.Size = new System.Drawing.Size(41, 18);
             this.lblLvl3.TabIndex = 17;
@@ -823,7 +837,7 @@
             // 
             this.lblLvl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLvl2.Appearance.Options.UseFont = true;
-            this.lblLvl2.Location = new System.Drawing.Point(26, 255);
+            this.lblLvl2.Location = new System.Drawing.Point(26, 315);
             this.lblLvl2.Name = "lblLvl2";
             this.lblLvl2.Size = new System.Drawing.Size(41, 18);
             this.lblLvl2.TabIndex = 15;
@@ -833,7 +847,7 @@
             // 
             this.lblLvl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLvl1.Appearance.Options.UseFont = true;
-            this.lblLvl1.Location = new System.Drawing.Point(26, 225);
+            this.lblLvl1.Location = new System.Drawing.Point(26, 285);
             this.lblLvl1.Name = "lblLvl1";
             this.lblLvl1.Size = new System.Drawing.Size(41, 18);
             this.lblLvl1.TabIndex = 13;
@@ -843,7 +857,7 @@
             // 
             this.lblGroups.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGroups.Appearance.Options.UseFont = true;
-            this.lblGroups.Location = new System.Drawing.Point(26, 195);
+            this.lblGroups.Location = new System.Drawing.Point(26, 255);
             this.lblGroups.Name = "lblGroups";
             this.lblGroups.Size = new System.Drawing.Size(39, 18);
             this.lblGroups.TabIndex = 11;
@@ -853,7 +867,7 @@
             // 
             this.lblFactory.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFactory.Appearance.Options.UseFont = true;
-            this.lblFactory.Location = new System.Drawing.Point(26, 165);
+            this.lblFactory.Location = new System.Drawing.Point(26, 225);
             this.lblFactory.Name = "lblFactory";
             this.lblFactory.Size = new System.Drawing.Size(60, 18);
             this.lblFactory.TabIndex = 9;
@@ -874,7 +888,7 @@
             // 
             this.lblReportTypes.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReportTypes.Appearance.Options.UseFont = true;
-            this.lblReportTypes.Location = new System.Drawing.Point(26, 135);
+            this.lblReportTypes.Location = new System.Drawing.Point(26, 195);
             this.lblReportTypes.Name = "lblReportTypes";
             this.lblReportTypes.Size = new System.Drawing.Size(82, 18);
             this.lblReportTypes.TabIndex = 6;
@@ -883,7 +897,7 @@
             // dtpCreateDate
             // 
             this.dtpCreateDate.EditValue = null;
-            this.dtpCreateDate.Location = new System.Drawing.Point(116, 102);
+            this.dtpCreateDate.Location = new System.Drawing.Point(116, 162);
             this.dtpCreateDate.Name = "dtpCreateDate";
             this.dtpCreateDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.dtpCreateDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -901,21 +915,11 @@
             this.lblCreateDate.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreateDate.Appearance.Options.UseFont = true;
             this.lblCreateDate.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.lblCreateDate.Location = new System.Drawing.Point(26, 105);
+            this.lblCreateDate.Location = new System.Drawing.Point(26, 165);
             this.lblCreateDate.Name = "lblCreateDate";
             this.lblCreateDate.Size = new System.Drawing.Size(60, 18);
             this.lblCreateDate.TabIndex = 4;
             this.lblCreateDate.Text = "Ngày tạo";
-            // 
-            // lblScanType
-            // 
-            this.lblScanType.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScanType.Appearance.Options.UseFont = true;
-            this.lblScanType.Location = new System.Drawing.Point(26, 75);
-            this.lblScanType.Name = "lblScanType";
-            this.lblScanType.Size = new System.Drawing.Size(59, 18);
-            this.lblScanType.TabIndex = 3;
-            this.lblScanType.Text = "Loại quét";
             // 
             // lblSource
             // 
@@ -926,25 +930,6 @@
             this.lblSource.Size = new System.Drawing.Size(67, 18);
             this.lblSource.TabIndex = 2;
             this.lblSource.Text = "Chọn máy";
-            // 
-            // cboScanType
-            // 
-            this.cboScanType.Location = new System.Drawing.Point(116, 72);
-            this.cboScanType.Name = "cboScanType";
-            this.cboScanType.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.cboScanType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboScanType.Properties.Appearance.Options.UseFont = true;
-            this.cboScanType.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboScanType.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cboScanType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboScanType.Properties.Items.AddRange(new object[] {
-            "Multiple",
-            "Multiple (separate files)",
-            "Single"});
-            this.cboScanType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboScanType.Size = new System.Drawing.Size(130, 24);
-            this.cboScanType.TabIndex = 2;
             // 
             // picPreview
             // 
@@ -1166,6 +1151,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QA SCAN";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pnlFooter)).EndInit();
             this.pnlFooter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
@@ -1181,11 +1167,10 @@
             this.splitContainerBody.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBody)).EndInit();
             this.splitContainerBody.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboScanTypeOld.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboColor.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDuplex.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboSource.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboScanType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboLvl1.Properties)).EndInit();
@@ -1197,7 +1182,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboDrives.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpCreateDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpCreateDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboScanType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPreview.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
@@ -1215,8 +1199,6 @@
 
         private DevExpress.XtraEditors.PanelControl pnlFooter;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerBody;
-        private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.SimpleButton btnScan;
         private DevExpress.XtraEditors.SimpleButton btnRemoveLvl2;
         private DevExpress.XtraEditors.SimpleButton btnAddLvl2;
         private DevExpress.XtraEditors.SimpleButton btnRemoveLvl1;
@@ -1240,7 +1222,6 @@
         private DevExpress.XtraEditors.SimpleButton btnReloadSource;
         private DevExpress.XtraEditors.LabelControl lblReportTypes;
         private DevExpress.XtraEditors.LabelControl lblCreateDate;
-        private DevExpress.XtraEditors.LabelControl lblScanType;
         private DevExpress.XtraEditors.LabelControl lblSource;
         private DevExpress.Utils.Layout.StackPanel stackPanel1;
         private DevExpress.XtraEditors.SimpleButton btnFirst;
@@ -1263,7 +1244,6 @@
         private DevExpress.XtraEditors.SimpleButton btnFlipH;
         private DevExpress.XtraEditors.LabelControl lblPage;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraEditors.SimpleButton btnUpload;
         private DevExpress.XtraEditors.SimpleButton btnDefaultSize;
         private DevExpress.XtraGrid.Columns.GridColumn colFileName;
         private DevExpress.XtraGrid.Columns.GridColumn colCreatedDate;
@@ -1280,11 +1260,13 @@
         private DevExpress.XtraEditors.ComboBoxEdit cboOutput;
         private DevExpress.XtraEditors.ComboBoxEdit cboDrives;
         private DevExpress.XtraEditors.DateEdit dtpCreateDate;
-        private DevExpress.XtraEditors.ComboBoxEdit cboScanType;
         private DevExpress.XtraEditors.ComboBoxEdit cboSource;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.ComboBoxEdit cboScanTypeOld;
+        private DevExpress.XtraEditors.LabelControl lblScanType;
+        private DevExpress.XtraEditors.ComboBoxEdit cboScanType;
         private DevExpress.XtraEditors.SimpleButton btnScanOld;
+        private DevExpress.XtraEditors.LabelControl lblColor;
+        private DevExpress.XtraEditors.ComboBoxEdit cboColor;
+        private DevExpress.XtraEditors.LabelControl lblDuplex;
+        private DevExpress.XtraEditors.ComboBoxEdit cboDuplex;
     }
 }
