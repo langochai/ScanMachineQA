@@ -93,10 +93,10 @@ namespace winforms_templates
                     drives.Add(di.Name);
                 }
             }
-            if (drives.Contains("D:\\"))
+            if (drives.Contains("E:\\"))
             {
-                drives.Remove("D:\\");
-                drives.Insert(0, "D:\\");
+                drives.Remove("E:\\");
+                drives.Insert(0, "E:\\");
             }
 
             cboDrives.Properties.Items.Clear();
@@ -612,10 +612,8 @@ namespace winforms_templates
 
                     bool enableDuplex = (cboDuplex.SelectedIndex == 1);
                     bool enableColor = (cboColor.SelectedIndex == 1);
-                    bool enableDuplexResult = EZTwain.EnableDuplex(enableDuplex);
-                    bool enableColorResult = EZTwain.SetPixelType(enableColor ? EZTwain.TWPT_RGB : EZTwain.TWPT_BW);
-                    if (!enableDuplexResult || !enableColorResult)
-                        MessageBox.Show("Thiết lập chế độ scan hai mặt/ scan màu không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    EZTwain.EnableDuplex(enableDuplex);
+                    EZTwain.SetPixelType(enableColor ? EZTwain.TWPT_RGB : EZTwain.TWPT_BW);
 
                     string fullPath = GetFullPath();
                     EZTwain.AcquireMultipageFile(this.Handle, fullPath);

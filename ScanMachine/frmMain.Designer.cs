@@ -330,7 +330,7 @@
             this.splitContainerBody.Panel2.Padding = new System.Windows.Forms.Padding(15, 15, 15, 0);
             this.splitContainerBody.Panel2.Text = "Panel2";
             this.splitContainerBody.Size = new System.Drawing.Size(1398, 694);
-            this.splitContainerBody.SplitterPosition = 355;
+            this.splitContainerBody.SplitterPosition = 425;
             this.splitContainerBody.TabIndex = 4;
             // 
             // lblColor
@@ -345,6 +345,8 @@
             // 
             // cboColor
             // 
+            this.cboColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboColor.Location = new System.Drawing.Point(115, 132);
             this.cboColor.Name = "cboColor";
             this.cboColor.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -358,7 +360,7 @@
             "Đen trắng",
             "Có màu"});
             this.cboColor.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboColor.Size = new System.Drawing.Size(130, 24);
+            this.cboColor.Size = new System.Drawing.Size(215, 24);
             this.cboColor.TabIndex = 51;
             // 
             // lblDuplex
@@ -373,6 +375,8 @@
             // 
             // cboDuplex
             // 
+            this.cboDuplex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboDuplex.Location = new System.Drawing.Point(116, 102);
             this.cboDuplex.Name = "cboDuplex";
             this.cboDuplex.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -386,15 +390,17 @@
             "Một mặt",
             "Hai mặt"});
             this.cboDuplex.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboDuplex.Size = new System.Drawing.Size(130, 24);
+            this.cboDuplex.Size = new System.Drawing.Size(214, 24);
             this.cboDuplex.TabIndex = 49;
             // 
             // btnScanOld
             // 
+            this.btnScanOld.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnScanOld.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnScanOld.ImageOptions.SvgImage")));
             this.btnScanOld.Location = new System.Drawing.Point(22, 449);
             this.btnScanOld.Name = "btnScanOld";
-            this.btnScanOld.Size = new System.Drawing.Size(223, 35);
+            this.btnScanOld.Size = new System.Drawing.Size(308, 35);
             this.btnScanOld.TabIndex = 13;
             this.btnScanOld.Text = "Quét";
             this.btnScanOld.Click += new System.EventHandler(this.btnScanOld_Click);
@@ -411,6 +417,8 @@
             // 
             // cboSource
             // 
+            this.cboSource.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboSource.Location = new System.Drawing.Point(116, 11);
             this.cboSource.Name = "cboSource";
             this.cboSource.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -425,12 +433,14 @@
             "PNG",
             "JPG"});
             this.cboSource.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboSource.Size = new System.Drawing.Size(130, 24);
+            this.cboSource.Size = new System.Drawing.Size(214, 24);
             this.cboSource.TabIndex = 48;
             this.cboSource.SelectedIndexChanged += new System.EventHandler(this.cboSource_EditValueChanged);
             // 
             // cboScanType
             // 
+            this.cboScanType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboScanType.Location = new System.Drawing.Point(116, 72);
             this.cboScanType.Name = "cboScanType";
             this.cboScanType.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -445,11 +455,13 @@
             "Multi",
             "Auto"});
             this.cboScanType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboScanType.Size = new System.Drawing.Size(130, 24);
+            this.cboScanType.Size = new System.Drawing.Size(214, 24);
             this.cboScanType.TabIndex = 4;
             // 
             // cboLvl3
             // 
+            this.cboLvl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboLvl3.Location = new System.Drawing.Point(116, 342);
             this.cboLvl3.Name = "cboLvl3";
             this.cboLvl3.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -470,12 +482,14 @@
             this.cboLvl3.Properties.PopupFormMinSize = new System.Drawing.Size(130, 0);
             this.cboLvl3.Properties.PopupWidth = 130;
             this.cboLvl3.Properties.ShowHeader = false;
-            this.cboLvl3.Size = new System.Drawing.Size(130, 24);
+            this.cboLvl3.Size = new System.Drawing.Size(214, 24);
             this.cboLvl3.TabIndex = 47;
             this.cboLvl3.Tag = "Lvl3";
             // 
             // cboLvl2
             // 
+            this.cboLvl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboLvl2.Location = new System.Drawing.Point(116, 312);
             this.cboLvl2.Name = "cboLvl2";
             this.cboLvl2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -496,13 +510,15 @@
             this.cboLvl2.Properties.PopupFormMinSize = new System.Drawing.Size(130, 0);
             this.cboLvl2.Properties.PopupWidth = 130;
             this.cboLvl2.Properties.ShowHeader = false;
-            this.cboLvl2.Size = new System.Drawing.Size(130, 24);
+            this.cboLvl2.Size = new System.Drawing.Size(214, 24);
             this.cboLvl2.TabIndex = 46;
             this.cboLvl2.Tag = "Lvl2";
             this.cboLvl2.EditValueChanged += new System.EventHandler(this.cboLvl2_EditValueChanged);
             // 
             // cboLvl1
             // 
+            this.cboLvl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboLvl1.Location = new System.Drawing.Point(116, 282);
             this.cboLvl1.Name = "cboLvl1";
             this.cboLvl1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -523,13 +539,15 @@
             this.cboLvl1.Properties.PopupFormMinSize = new System.Drawing.Size(130, 0);
             this.cboLvl1.Properties.PopupWidth = 130;
             this.cboLvl1.Properties.ShowHeader = false;
-            this.cboLvl1.Size = new System.Drawing.Size(130, 24);
+            this.cboLvl1.Size = new System.Drawing.Size(214, 24);
             this.cboLvl1.TabIndex = 45;
             this.cboLvl1.Tag = "Lvl1";
             this.cboLvl1.EditValueChanged += new System.EventHandler(this.cboLvl1_EditValueChanged);
             // 
             // cboGroups
             // 
+            this.cboGroups.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboGroups.Location = new System.Drawing.Point(116, 252);
             this.cboGroups.Name = "cboGroups";
             this.cboGroups.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -550,13 +568,15 @@
             this.cboGroups.Properties.PopupFormMinSize = new System.Drawing.Size(130, 0);
             this.cboGroups.Properties.PopupWidth = 130;
             this.cboGroups.Properties.ShowHeader = false;
-            this.cboGroups.Size = new System.Drawing.Size(130, 24);
+            this.cboGroups.Size = new System.Drawing.Size(214, 24);
             this.cboGroups.TabIndex = 44;
             this.cboGroups.Tag = "Groups";
             this.cboGroups.EditValueChanged += new System.EventHandler(this.cboGroups_EditValueChanged);
             // 
             // cboFactories
             // 
+            this.cboFactories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboFactories.Location = new System.Drawing.Point(116, 222);
             this.cboFactories.Name = "cboFactories";
             this.cboFactories.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -576,13 +596,15 @@
             this.cboFactories.Properties.PopupFormMinSize = new System.Drawing.Size(130, 0);
             this.cboFactories.Properties.PopupWidth = 130;
             this.cboFactories.Properties.ShowHeader = false;
-            this.cboFactories.Size = new System.Drawing.Size(130, 24);
+            this.cboFactories.Size = new System.Drawing.Size(214, 24);
             this.cboFactories.TabIndex = 43;
             this.cboFactories.Tag = "Factories";
             this.cboFactories.EditValueChanged += new System.EventHandler(this.cboFactories_EditValueChanged);
             // 
             // cboReportTypes
             // 
+            this.cboReportTypes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboReportTypes.Location = new System.Drawing.Point(116, 192);
             this.cboReportTypes.Name = "cboReportTypes";
             this.cboReportTypes.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -602,7 +624,7 @@
             this.cboReportTypes.Properties.PopupFormMinSize = new System.Drawing.Size(130, 0);
             this.cboReportTypes.Properties.PopupWidth = 130;
             this.cboReportTypes.Properties.ShowHeader = false;
-            this.cboReportTypes.Size = new System.Drawing.Size(130, 24);
+            this.cboReportTypes.Size = new System.Drawing.Size(214, 24);
             this.cboReportTypes.TabIndex = 42;
             this.cboReportTypes.Tag = "ReportTypes";
             // 
@@ -618,6 +640,8 @@
             // 
             // cboOutput
             // 
+            this.cboOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboOutput.Location = new System.Drawing.Point(116, 42);
             this.cboOutput.Name = "cboOutput";
             this.cboOutput.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -632,14 +656,15 @@
             "PNG",
             "JPG"});
             this.cboOutput.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboOutput.Size = new System.Drawing.Size(130, 24);
+            this.cboOutput.Size = new System.Drawing.Size(214, 24);
             this.cboOutput.TabIndex = 39;
             // 
             // btnRemoveLvl2
             // 
+            this.btnRemoveLvl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveLvl2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveLvl2.ImageOptions.SvgImage")));
             this.btnRemoveLvl2.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnRemoveLvl2.Location = new System.Drawing.Point(286, 313);
+            this.btnRemoveLvl2.Location = new System.Drawing.Point(377, 313);
             this.btnRemoveLvl2.Name = "btnRemoveLvl2";
             this.btnRemoveLvl2.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnRemoveLvl2.Size = new System.Drawing.Size(26, 23);
@@ -649,9 +674,10 @@
             // 
             // btnAddLvl2
             // 
+            this.btnAddLvl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddLvl2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddLvl2.ImageOptions.SvgImage")));
             this.btnAddLvl2.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddLvl2.Location = new System.Drawing.Point(254, 313);
+            this.btnAddLvl2.Location = new System.Drawing.Point(345, 313);
             this.btnAddLvl2.Name = "btnAddLvl2";
             this.btnAddLvl2.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAddLvl2.Size = new System.Drawing.Size(26, 23);
@@ -661,9 +687,10 @@
             // 
             // btnRemoveLvl1
             // 
+            this.btnRemoveLvl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveLvl1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveLvl1.ImageOptions.SvgImage")));
             this.btnRemoveLvl1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnRemoveLvl1.Location = new System.Drawing.Point(286, 283);
+            this.btnRemoveLvl1.Location = new System.Drawing.Point(377, 283);
             this.btnRemoveLvl1.Name = "btnRemoveLvl1";
             this.btnRemoveLvl1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnRemoveLvl1.Size = new System.Drawing.Size(26, 23);
@@ -673,9 +700,10 @@
             // 
             // btnAddLvl1
             // 
+            this.btnAddLvl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddLvl1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddLvl1.ImageOptions.SvgImage")));
             this.btnAddLvl1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddLvl1.Location = new System.Drawing.Point(254, 283);
+            this.btnAddLvl1.Location = new System.Drawing.Point(345, 283);
             this.btnAddLvl1.Name = "btnAddLvl1";
             this.btnAddLvl1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAddLvl1.Size = new System.Drawing.Size(26, 23);
@@ -685,9 +713,10 @@
             // 
             // btnRemoveGroup
             // 
+            this.btnRemoveGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveGroup.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveGroup.ImageOptions.SvgImage")));
             this.btnRemoveGroup.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnRemoveGroup.Location = new System.Drawing.Point(286, 253);
+            this.btnRemoveGroup.Location = new System.Drawing.Point(377, 253);
             this.btnRemoveGroup.Name = "btnRemoveGroup";
             this.btnRemoveGroup.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnRemoveGroup.Size = new System.Drawing.Size(26, 23);
@@ -697,9 +726,10 @@
             // 
             // btnAddGroup
             // 
+            this.btnAddGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddGroup.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddGroup.ImageOptions.SvgImage")));
             this.btnAddGroup.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddGroup.Location = new System.Drawing.Point(254, 253);
+            this.btnAddGroup.Location = new System.Drawing.Point(345, 253);
             this.btnAddGroup.Name = "btnAddGroup";
             this.btnAddGroup.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAddGroup.Size = new System.Drawing.Size(26, 23);
@@ -709,9 +739,10 @@
             // 
             // btnRemoveLvl3
             // 
+            this.btnRemoveLvl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveLvl3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveLvl3.ImageOptions.SvgImage")));
             this.btnRemoveLvl3.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnRemoveLvl3.Location = new System.Drawing.Point(286, 343);
+            this.btnRemoveLvl3.Location = new System.Drawing.Point(377, 343);
             this.btnRemoveLvl3.Name = "btnRemoveLvl3";
             this.btnRemoveLvl3.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnRemoveLvl3.Size = new System.Drawing.Size(26, 23);
@@ -721,9 +752,10 @@
             // 
             // btnAddLvl3
             // 
+            this.btnAddLvl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddLvl3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddLvl3.ImageOptions.SvgImage")));
             this.btnAddLvl3.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddLvl3.Location = new System.Drawing.Point(254, 343);
+            this.btnAddLvl3.Location = new System.Drawing.Point(345, 343);
             this.btnAddLvl3.Name = "btnAddLvl3";
             this.btnAddLvl3.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAddLvl3.Size = new System.Drawing.Size(26, 23);
@@ -733,9 +765,10 @@
             // 
             // btnRemoveFactory
             // 
+            this.btnRemoveFactory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveFactory.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveFactory.ImageOptions.SvgImage")));
             this.btnRemoveFactory.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnRemoveFactory.Location = new System.Drawing.Point(286, 222);
+            this.btnRemoveFactory.Location = new System.Drawing.Point(377, 222);
             this.btnRemoveFactory.Name = "btnRemoveFactory";
             this.btnRemoveFactory.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnRemoveFactory.Size = new System.Drawing.Size(26, 23);
@@ -745,9 +778,10 @@
             // 
             // btnAddFactory
             // 
+            this.btnAddFactory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddFactory.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddFactory.ImageOptions.SvgImage")));
             this.btnAddFactory.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddFactory.Location = new System.Drawing.Point(254, 222);
+            this.btnAddFactory.Location = new System.Drawing.Point(345, 222);
             this.btnAddFactory.Name = "btnAddFactory";
             this.btnAddFactory.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAddFactory.Size = new System.Drawing.Size(26, 23);
@@ -757,9 +791,10 @@
             // 
             // btnRemoveReportType
             // 
+            this.btnRemoveReportType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRemoveReportType.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRemoveReportType.ImageOptions.SvgImage")));
             this.btnRemoveReportType.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnRemoveReportType.Location = new System.Drawing.Point(286, 193);
+            this.btnRemoveReportType.Location = new System.Drawing.Point(377, 193);
             this.btnRemoveReportType.Name = "btnRemoveReportType";
             this.btnRemoveReportType.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnRemoveReportType.Size = new System.Drawing.Size(26, 23);
@@ -769,9 +804,10 @@
             // 
             // btnAddReportType
             // 
+            this.btnAddReportType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddReportType.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddReportType.ImageOptions.SvgImage")));
             this.btnAddReportType.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnAddReportType.Location = new System.Drawing.Point(254, 193);
+            this.btnAddReportType.Location = new System.Drawing.Point(345, 193);
             this.btnAddReportType.Name = "btnAddReportType";
             this.btnAddReportType.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnAddReportType.Size = new System.Drawing.Size(26, 23);
@@ -781,11 +817,13 @@
             // 
             // txtDocumentCode
             // 
+            this.txtDocumentCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDocumentCode.Location = new System.Drawing.Point(116, 402);
             this.txtDocumentCode.Name = "txtDocumentCode";
             this.txtDocumentCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDocumentCode.Properties.Appearance.Options.UseFont = true;
-            this.txtDocumentCode.Size = new System.Drawing.Size(130, 24);
+            this.txtDocumentCode.Size = new System.Drawing.Size(214, 24);
             this.txtDocumentCode.TabIndex = 11;
             // 
             // lblDocumentCode
@@ -800,6 +838,8 @@
             // 
             // cboDrives
             // 
+            this.cboDrives.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboDrives.Location = new System.Drawing.Point(116, 372);
             this.cboDrives.Name = "cboDrives";
             this.cboDrives.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -810,7 +850,7 @@
             this.cboDrives.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboDrives.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboDrives.Size = new System.Drawing.Size(130, 24);
+            this.cboDrives.Size = new System.Drawing.Size(214, 24);
             this.cboDrives.TabIndex = 10;
             // 
             // lblDrives
@@ -875,9 +915,10 @@
             // 
             // btnReloadSource
             // 
+            this.btnReloadSource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReloadSource.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReloadSource.ImageOptions.SvgImage")));
             this.btnReloadSource.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btnReloadSource.Location = new System.Drawing.Point(254, 13);
+            this.btnReloadSource.Location = new System.Drawing.Point(345, 13);
             this.btnReloadSource.Name = "btnReloadSource";
             this.btnReloadSource.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnReloadSource.Size = new System.Drawing.Size(26, 23);
@@ -896,6 +937,8 @@
             // 
             // dtpCreateDate
             // 
+            this.dtpCreateDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpCreateDate.EditValue = null;
             this.dtpCreateDate.Location = new System.Drawing.Point(116, 162);
             this.dtpCreateDate.Name = "dtpCreateDate";
@@ -907,7 +950,7 @@
             this.dtpCreateDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpCreateDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dtpCreateDate.Size = new System.Drawing.Size(130, 24);
+            this.dtpCreateDate.Size = new System.Drawing.Size(214, 24);
             this.dtpCreateDate.TabIndex = 3;
             // 
             // lblCreateDate
@@ -942,7 +985,7 @@
             this.picPreview.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.picPreview.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.True;
             this.picPreview.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.picPreview.Size = new System.Drawing.Size(995, 596);
+            this.picPreview.Size = new System.Drawing.Size(925, 596);
             this.picPreview.TabIndex = 0;
             // 
             // panelControl3
@@ -952,7 +995,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(15, 15);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(995, 17);
+            this.panelControl3.Size = new System.Drawing.Size(925, 17);
             this.panelControl3.TabIndex = 2;
             // 
             // lblPage
@@ -978,7 +1021,7 @@
             this.stackPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.stackPanel1.Location = new System.Drawing.Point(15, 628);
             this.stackPanel1.Name = "stackPanel1";
-            this.stackPanel1.Size = new System.Drawing.Size(995, 58);
+            this.stackPanel1.Size = new System.Drawing.Size(925, 58);
             this.stackPanel1.TabIndex = 1;
             this.stackPanel1.UseSkinIndents = true;
             // 
